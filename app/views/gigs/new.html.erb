@@ -1,0 +1,85 @@
+<div class="container">
+	<h4 class ="center">Post an Internship Opportunity</h4>
+	<br>
+    <div class="col-sm-8">
+<%= form_for @gig do |f| %>
+
+@gig.errors
+    
+    	<div class= "row"> 
+    		<div class="col-sm-10">
+    			<div class="form-group">
+    				<%= f.label :name %>
+    				<%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
+    				<small class="healer block"> Data entry, writer, receptinist etc </small>
+    			</div><!-- /.form-group -->
+    		</div> 
+
+    		<div class="col-sm-4">
+    			<div class="form-group">
+    				<%= f.label :stipend %>
+    				<div class="input-group">
+				      <div class="input-group-addon">Kshs</div>
+				      <%= f.text_field :budget, class: "form-control" %>
+				    	</div>
+    				<small class="healer block"> Free or min Kshs 5000 </small>
+    			</div><!-- /.form-group -->
+    		</div>
+    		<div class="col-sm-3">
+    			<div class="form-group">
+    				<%= f.label :duration %>
+    				<%= f.text_field :duration, class: "form-control" %>
+    				<small class="healer block"> weeks or months </small>
+    				
+    			</div>
+    		</div>
+    		<div class="col-sm-3">
+    			<div class="form-group">
+    				<%= f.label :startdate %>
+    				<%= f.text_field :startdate, class: "form-control" %>
+    			</div><!-- /.form-group -->
+    		</div>
+    		<div class="col-sm-10">
+    			<div class="form-group">
+    				<%= f.label :description %>
+    				<%= f.text_area :description, class: "form-control" %>
+    				<small class="healer block"> What are the expectations and working hours, mentorship opportunities etc </small>
+    			</div><!-- /.form-group -->
+    		</div>
+    		<div class="col-sm-10">
+    			<div class="form-group">
+    				<%= f.label :location %>
+    				<%= f.text_field :location, class: "form-control " %>
+    				<small class="healer block"> leave blank if  location is (insert code from registered office) </small>
+    			</div><!-- /.form-group -->
+    		</div>
+    		<div class="col-sm-10">
+  			<div class="form-group">
+  				<button type="button" class="btn btn-secondary btn-lg btn-block"><%= f.submit "post it" %></button>
+            </div>
+
+            
+        </div>
+		</div>
+		<% end %>
+    </div><!-- /.col-* -->
+
+    <div class="col-sm-4">
+    	<div class="widget">
+            <h2>How it works</h2>
+            <p>Looking for interns? Get your Company account in one min here <%= link_to "Create Account", new_user_registration_path %> </p>
+            <p>Post an appealing position in your company to attract smart interns to apply, you will find listed candidates on your dashboard </p>
+        </div><!-- /.widget -->
+      
+        <div class="widget">
+            <h2>Make sure to Include</h2>
+            <ul class="nav">
+                <li><a href="#"><span>1.</span> Internship Opportunity</a></li>
+                <li><a href="#"><span>2.</span> Duration of internship</a></li>
+                <li><a href="#"><span>3.</span> Basic pay or stipend</a></li>
+                <li><a href="#"><span>4.</span> Experience or Education</a></li>
+                <li><a href="#"><span>5.</span> Mentorship Opportunities </a></li>
+            </ul>
+        </div><!-- /.widget -->    
+    </div><!-- /.col-* -->
+</div><!-- /.container -->

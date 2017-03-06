@@ -1,0 +1,43 @@
+<div class="page-wrapper">
+<div class="header-wrapper">
+    <div class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-brand">
+                    <div class="header-logo">
+               
+                            <i class="profession profession-logo"></i>
+                            <span class="header-logo-text"><%= link_to "Ma", root_path %> <span class="header-logo-highlight">:</span><%= link_to "Interns", root_path %></span>
+                    </div><!-- /.header-logo-->
+
+                    <div class="header-slogan">
+                        <span class="header-slogan-slash">/</span>
+                        <span class="header-slogan-text">Attachment job Portal </span>
+                    </div><!-- /.header-slogan-->
+                </div><!-- /.header-brand -->
+
+                <ul class="header-actions nav nav-pills">
+                  
+                   <% if user_signed_in? %>
+                   <li><%= link_to "Post an Internship &raquo".html_safe, new_gig_path, class: "primary" %></li>
+                      <!--<li><a href="create-resume.html" class="primary">Create Resume</a></li>-->
+                      <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+                    <% else %>
+                      <li><%= link_to "Login in", new_user_session_path %></li>
+                      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                    <% end %>
+                </ul><!-- /.header-actions -->
+
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".header-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div><!-- /.container -->
+        </div>
+        <!-- /.header-top -->
+    </div><!-- /.header -->
+</div><!-- /.header-wrapper-->
+</div>

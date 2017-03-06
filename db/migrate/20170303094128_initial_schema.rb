@@ -3,12 +3,12 @@ class InitialSchema < ActiveRecord::Migration[5.0]
   	create_table :gigs do |t|
   	t.string 	:name
   	t.text 		:description
-  	t.integer 	:budget
+  	t.integer :budget
   	t.date 		:startdate
   	t.integer	:duration
   	t.string 	:location
-  	t.boolean 	:open, default: true
-  	t.integer 	:hired
+  	t.boolean :open, default: true
+  	t.integer :awarded_internship
   	t.timestamps
   end
 
@@ -29,8 +29,8 @@ class InitialSchema < ActiveRecord::Migration[5.0]
   	create_table :abilities do |t|
   	end
   	
-  	add_reference 	:gigs, :category, index: true
-  	add_reference 	:proposals, :gig, index: true
+  	add_reference :gigs, :category, index: true
+  	add_reference :proposals, :gig, index: true
   	add_reference	:abilities, :gig, index: true
   	add_reference	:abilities, :skill, index: true 
   end
