@@ -1,6 +1,7 @@
 class GigsController < ApplicationController
 
 	def index
+		@gig = Gig.all.order("created_at DESC").page(params[:page]).per(20)
 	end
 
 	def new
@@ -14,6 +15,7 @@ class GigsController < ApplicationController
 	end
 
 	def show
+		@gig = Gig.find(params[:id])
 	end
 
 	

@@ -24,9 +24,9 @@
             </label>
         </div>
         <% end -%>
-          <div class="form-group">
-          <button type="submit" class="btn btn-secondary btn-block"> <%= f.submit "Log in" %> </button>
-           </div>
+         <div class="form-group">
+             <%= f.submit "Sign up", class: "btn btn-secondary btn-block" %>
+            </div>
           <% end %>
           <hr>
           <p class="small"> Not registered? <%= render "devise/shared/links" %>

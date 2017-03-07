@@ -1,13 +1,16 @@
 <div class="container">
-     <div class="companies-list">           
+     <div class="companies-list">   
+     <% @gig.each do |gig| %>        
                 <div class="companies-list-item">
                     <div class="companies-list-item-image">
-                       
+                       Logo
                     </div><!-- /.companies-list-item-image -->
 
                     <div class="companies-list-item-heading">
-                        <h2><a href="company-detail.html">Dropbox</a></h2>
-                        <h3>San Francisco, California</h3>
+                        <h2><%= link_to gig.name, gig %> <span class="label label-success"><%= gig.budget %></span>
+                           </h2>
+                        <h2>Company Name goes here</h2>
+                        <small><%= gig.location %></Small>
                     </div><!-- /.companies-list-item-heading -->
 
                     <div class="companies-list-item-count">
@@ -15,37 +18,18 @@
                     </div><!-- /.positions-list-item-count -->
 
                     <div class="companies-list-item-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        "ratings goes here"
                         <span class="companies-list-item-rating-count">/ 53</span>
                     </div><!-- /.companies-list-item-rating -->
                 </div><!-- /.companies-list-item -->
-            
-                <div class="companies-list-item">
-                    <div class="companies-list-item-image">
-                       
-                    </div><!-- /.companies-list-item-image -->
-
-                    <div class="companies-list-item-heading">
-                        <h2><a href="company-detail.html">Airbnb</a></h2>
-                        <h3>New York City, New York</h3>
-                    </div><!-- /.companies-list-item-heading -->
-
-                    <div class="companies-list-item-count">
-                        <a href="#">3 open positions</a>
-                    </div><!-- /.positions-list-item-count -->
-
-                    <div class="companies-list-item-rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <span class="companies-list-item-rating-count">/ 24</span>
-                    </div><!-- /.companies-list-item-rating -->
-                </div><!-- /.companies-list-item -->     
-        </div><!-- /.companies-list -->
-    </div> <!-- page wrapper -->
+                <% end %>
+<div class="center">
+    <ul class="pagination"> 
+        <li></li>
+        <li><a href="#">2</a></li>
+        <li class="active"><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+    </ul>
+  </div><!-- /.center -->   
+</div> <!-- page wrapper -->

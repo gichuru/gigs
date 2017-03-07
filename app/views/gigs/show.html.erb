@@ -3,7 +3,8 @@
         <div class="main">
             <div class="document-title">
                  <div class="position-header">
-					<h1> Senior Java Developer <span>Urgent</span></h1>
+					<h1> <%= @gig.name %> <span class="label label-success"><%= @gig.budget %></span></h1>
+					<small>Created on <%= @gig.created_at.strftime (" %d of %b %Y") %></small>
 					<h2>
 						<span class="position-header-company-image"></span>
 						<a href="#">nailab</a>
@@ -15,26 +16,27 @@
 		<div class="col-sm-8">
 			<div class="position-general-information">
 				<dl>
+					<dt>Status</dt>
+					<dd><%= @gig.open %> </dd>
+
 					<dt>Location</dt>
-					<dd>San Fracisco, California</dd>
+					<dd><%= @gig.location %> </dd>
+
+					<dt>Duration</dt>
+					<dd><%= @gig.duration %> Months </dd>
+
+					<dt>Stipend (Kshs/pm)</dt>
+					<dd><%= @gig.budget %> /=  </dd>
 
 					<dt>Start Date</dt>
-					<dd>28/11/2015</dd>
+					<dd><%= @gig.startdate.strftime (" %d - %b - %Y") %> </dd>
 
-					<dt>Contract</dt>
-					<dd>Full time</dd>
-
-					<dt>Salary</dt>
-					<dd>By agreement</dd>
-
-					<dt>Job ID</dt>
-					<dd>#1234</dd>
 				</dl>
 			</div><!-- /.position-general-information -->
 
 			<h3 class="page-header">Description, duties, responsibilities</h3>
 			<p>
-				Vivamus dignissim ex eu diam eleifend pharetra. Aliquam eleifend arcu quis risus scelerisque feugiat. Donec suscipit tincidunt purus et vulputate. Proin ac rutrum urna, nec elementum leo. Praesent commodo neque nunc, efficitur aliquam quam iaculis a. Sed quis eros justo. Pellentesque ut turpis quam.
+				<%= @gig.description %> 
 			</p>
 
 			<h3 class="page-header">Other benefits</h3>
