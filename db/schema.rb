@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.string "name"
   end
 
+  create_table "companys", force: :cascade do |t|
+    t.string "cname"
+    t.string "category"
+    t.date   "sdate"
+    t.date   "edate"
+    t.string "role"
+    t.string "email"
+    t.string "website"
+    t.string "address"
+    t.text   "description"
+  end
+
   create_table "gigs", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -30,18 +42,23 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.date     "startdate"
     t.integer  "duration"
     t.string   "location"
-    t.boolean  "open",        default: true
-    t.integer  "hired"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "open",               default: true
+    t.integer  "awarded_internship"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "category_id"
     t.integer  "user_id"
     t.index ["category_id"], name: "index_gigs_on_category_id"
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "bio"
+    t.date   "age"
+    t.string "phone"
+  end
+
   create_table "proposals", force: :cascade do |t|
-    t.integer  "bid"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -49,6 +66,14 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.integer  "user_id"
     t.index ["gig_id"], name: "index_proposals_on_gig_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "sname"
+    t.date   "sdate"
+    t.date   "edate"
+    t.string "course"
+    t.string "description"
   end
 
   create_table "skills", force: :cascade do |t|

@@ -20,8 +20,34 @@ class InitialSchema < ActiveRecord::Migration[5.0]
   		t.string	:name
   	end
 
+    create_table :profiles do |t|
+      t.string  :bio
+      t.date  :age
+      t.string  :phone
+    end
+
+    create_table :schools do |t|
+      t.string  :sname
+      t.date  :sdate
+      t.date  :edate
+      t.string  :course
+      t.string  :description
+    end
+
+    create_table :companys do |t|
+      t.string  :cname
+      t.string  :category
+      t.date  :sdate
+      t.date  :edate
+      t.string  :role
+      t.string  :email
+      t.string  :website
+      t.string  :address
+      t.text  :description
+    end
+
+
   	create_table :proposals do |t|
-  		t.integer	:bid
   		t.text		:description
   		t.timestamps
   	end

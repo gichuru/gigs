@@ -26,12 +26,12 @@
     				<small class="healer block"> leave blank if  location is (insert code from registered office) </small>
     			</div><!-- /.form-group -->
     		</div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="form-group">
                     <%= f.label :stipend %>
                     <div class="input-group">
                       <div class="input-group-addon">Kshs</div>
-                      <%= f.text_field :budget, class: "form-control" %>
+                      <%= f.number_field :budget, class: "form-control" %>
                         </div>
                     <small class="healer block"> Free or min Kshs 5000 </small>
                 </div><!-- /.form-group -->
@@ -39,22 +39,22 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <%= f.label :duration %>
-                    <%= f.text_field :duration, class: "form-control" %>
+                    <%= f.number_field :duration, class: "form-control" %>
                     <small class="healer block"> weeks or months </small>
                     
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="form-group">
                     <%= f.label :startdate %>
-                    <%= f.text_field :startdate, class: "form-control" %>
+                    <%= f.date_field :startdate, class: "form-control" %>
                 </div><!-- /.form-group -->
             </div>
             
     		<div class="col-sm-10">
   			<div class="form-group">
              <!-- <button type="submit" class="btn btn-secondary btn-block">   <%= f.submit "Sign up" %> </button> -->
-             <%= f.submit "Sign up", class: "btn btn-secondary btn-block" %>
+             <%= f.submit "Post the Opportunity", class: "btn btn-secondary btn-block" %>
             </div>
 
             

@@ -20,7 +20,7 @@
                   
                    <% if user_signed_in? %>
                    <li><%= link_to "Post an Internship &raquo".html_safe, new_gig_path, class: "primary" %></li>
-                      <!--<li><a href="create-resume.html" class="primary">Create Resume</a></li>-->
+                       <li><%= link_to "Create Resume", new_profile_path, class: "primary" %></li>
                       <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                       <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
                     <% else %>
