@@ -11,7 +11,7 @@ end
 def create
 	@profile = Profile.new (profile_params)
 	@profile.save!
-	redirect_to @profile	
+	redirect_to new_edu_path
 end
 
 def show

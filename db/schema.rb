@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.string "name"
   end
 
-  create_table "companys", force: :cascade do |t|
+  create_table "companies", force: :cascade do |t|
     t.string "cname"
     t.string "category"
     t.date   "sdate"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.string "website"
     t.string "address"
     t.text   "description"
+  end
+
+  create_table "edus", force: :cascade do |t|
+    t.string "sname"
+    t.date   "sdate"
+    t.date   "edate"
+    t.string "course"
+    t.string "description"
   end
 
   create_table "gigs", force: :cascade do |t|
@@ -66,14 +74,6 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.integer  "user_id"
     t.index ["gig_id"], name: "index_proposals_on_gig_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
-  end
-
-  create_table "schools", force: :cascade do |t|
-    t.string "sname"
-    t.date   "sdate"
-    t.date   "edate"
-    t.string "course"
-    t.string "description"
   end
 
   create_table "skills", force: :cascade do |t|

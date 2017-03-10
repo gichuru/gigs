@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
         has_many	:gigs
         has_many	:proposals
+        has_many	:edus
 end

@@ -26,7 +26,7 @@ class InitialSchema < ActiveRecord::Migration[5.0]
       t.string  :phone
     end
 
-    create_table :schools do |t|
+    create_table :edus do |t|
       t.string  :sname
       t.date  :sdate
       t.date  :edate
@@ -34,7 +34,7 @@ class InitialSchema < ActiveRecord::Migration[5.0]
       t.string  :description
     end
 
-    create_table :companys do |t|
+    create_table :companies do |t|
       t.string  :cname
       t.string  :category
       t.date  :sdate
