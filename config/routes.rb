@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-	resources :gigs
-	resources	:profiles
-	resources	:edus
-	resources	:companies
-	root 'gigs#index'
+
+	resources :companies do
+		resources	:gigs
+		resources	:proposals
+end
+	root 'companies#index'
 end

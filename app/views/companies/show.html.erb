@@ -1,149 +1,109 @@
-            <div class="container">
-    <div class="resume">
-    <div class="resume-main">
-        <div class="resume-main-image">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="company-card">
+    <div class="company-card-image">
+        <span>Employer Details</span>
+        logo goes here
+    </div><!-- /.company-card-image -->
 
-        </div><!-- /.resume-main-image -->
+    <div class="company-card-data">
+        <dl>
+           
+            <dt>E-mail</dt>
+            <dd><%= @company.email %></dd>
 
-        <div class="resume-main-content">
-            <h2>Elliot Sarah Scott  <%= @profile.age %> 
-                <span class="resume-main-verified"><i class="fa fa-check"></i></span>
+             <dt>Website</dt>
+            <dd><%= @company.website %></dd>
 
-               <!--  <span class="resume-main-rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <span class="resume-main-rating-count">/ 32</span>
-                </span> --><!-- /.resume-main-rating -->
-            </h2>
+            <dt>Phone</dt>
+            <dd>coming soonn</dd>
 
-            <h3>Senior Data Analytist</h3>
-            
-            <p class="resume-main-contacts">
-                Timothy Blvd, Silicon Valley, California<br>
-                 <%= @profile.phone %>
-                Email: <a href="mailto:hello@example.com"></a> - Website: <a href="http://example.com">www.example.com</a>
-            </p><!-- /.resume-main-contact -->
+            <dt>Location</dt>
+            <dd><%= @company.location %></dd>
+        </dl>
+    </div><!-- /.company-card-data -->
+</div><!-- /.company-card -->
 
-          <!--   <div class="resume-main-actions">
-                <a href="#" class="btn btn-secondary"><i class="fa fa-download"></i> Download</a>
-                <a href="#" class="btn btn-default">Contact</a>
-                <a href="#" class="btn btn-default">Save</a>
-            </div> --><!-- /.resume-main-actions -->
-        </div><!-- /.resume-main-content -->
-    </div><!-- /.resume-main -->
 
-    <div class="resume-chapter">
-        <div class="resume-chapter-inner">
-            <div class="resume-chapter-title">
-                <h2>Summary</h2>
-            </div><!-- /.resume-chapter-title -->
+            <!--<div class="widget">
+                <ul class="social-links">
+                    <li><a href="#"><i class="fa fa-facebook">ff</i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+                </ul>
+            </div><!-- /.widget -->
+<!-- 
+            <div class="widget">
+                <h2>Contact Company</h2>
 
-            <div class="resume-chapter-content">
-                <p>
-                    <%= @profile.bio %>
-                </p>
+                <form method="get" action="?">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subject">
+                    </div><!-- /.form-group -->
+<!-- 
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your E-mail">
+                    </div><!-- /.form-group -->
 
-            </div><!-- /.resume-chapter-content -->
-        </div><!-- /.resume-chapter-inner -->
-    </div><!-- /.resume-chapter -->
+                    <!-- div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                    </div><!-- /.form-group --> 
 
-    <div class="resume-chapter">
-        <div class="resume-chapter-inner">
-            <div class="resume-chapter-content">
-                <h2 class="mb40">Working History</h2>
+                 <!--    <button class="btn btn-secondary pull-right" type="submit">Post Message</button>
+                </form>
+            </div> --><!-- /.widge -->
+        </div><!-- /.col-* -->
 
-                <dl>
-                    <dt>Current</dt>
+        <div class="col-sm-8">
+            <div class="company-header">
+              
 
-                    <dd>
-                        <h3>Project Manager</h3>
+                <h1><%= @company.cname %><span>industry</span></h1>
 
-                        <p>
-                            Fusce eu est lectus. Integer commodo fringilla libero, non sodales ipsum consectetur sit amet. Aenean non ligula ac est dapibus feugiat. Fusce convallis ex nec tellus vulputate.
-                        </p>
-                    </dd>
+                <%= link_to "Post an Internship".html_safe, new_company_gig_path(@company), class: "btn btn-secondary" %>
+            </div><!-- /.company-header -->
 
-                    <dt>2011 - 2014</dt>
+            <div class="company-stats">
+                <div class="company-stat">
+                    <span>Positions</span>
+                    <strong>12</strong>
+                </div><!-- /.company-stat -->
 
-                    <dd>
-                        <h3>Senior UX/UI designer</h3>
+                <div class="company-stat">
+                    <span>Employees</span>
+                    <strong>43</strong>
+                </div><!-- /.company-stat -->
 
-                        <p>
-                            Fusce eu est lectus. Integer commodo fringilla libero, non sodales ipsum consectetur sit amet. Aenean non ligula ac est dapibus feugiat. Fusce convallis ex nec tellus vulputate.
-                        </p>
-                    </dd>
+                <div class="company-stat">
+                    <span>Followers</span>
+                    <strong>324</strong>
+                </div><!-- /.company-stat -->
+            </div><!-- /.company-stat -->
 
-                    <dt>2010 - 2011</dt>
+            <h3 class="page-header">Company Profile</h3>
 
-                    <dd>
-                        <h3>Junior UX/UI designer</h3>
+            <p><%= @company.description %></p>
 
-                        <p>
-                            Fusce eu est lectus. Integer commodo fringilla libero, non sodales ipsum consectetur sit amet. Aenean non ligula ac est dapibus feugiat. Fusce convallis ex nec tellus vulputate.
-                        </p>
-                    </dd>
+            <h3 class="page-header">Open Positions</h3>
 
-                    <dt>2009 - 2010</dt>
+            <div class="positions-list">
+                <% @gigs.each do |gig| %> 
+                <div class="positions-list-item">
 
-                    <dd>
-                        <h3>UX Tester</h3>
+                    <h2><%= link_to gig.name %></h2>
+                    <h3><span>(logo)</span> San Francisco, Dropbox <br></h3>
+                    <p><%= gig.location %></p>
+                    <%= gig.duration %>
+                    <%= gig.startdate %>
+                    
 
-                        <p>
-                            Fusce eu est lectus. Integer commodo fringilla libero, non sodales ipsum consectetur sit amet. Aenean non ligula ac est dapibus feugiat. Fusce convallis ex nec tellus vulputate.
-                        </p>
-                    </dd>
-                </dl>
-            </div><!-- /.resume-chapter-content -->
-        </div><!-- /.resume-chapter-inner -->
-    </div><!-- /.resume-chapter -->
-
-    <div class="resume-chapter">
-        <div class="resume-chapter-inner">
-            <div class="resume-chapter-title">
-                <h2>Experience</h2>
-            </div><!-- /.resume-chapter-title -->
-
-            <div class="resume-chapter-content">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h4>Frameworks</h4>
-
-                        <ul>
-                            <li>Laravel, <span>4 years</span></li>
-                            <li>Zend, <span>3 years</span></li>
-                            <li>CakePHP, <span>1 year</span></li>
-                            <li>Yii, <span>1 year</span></li>
-                        </ul>
-                    </div><!-- /.col-* -->
-
-                    <div class="col-sm-4">
-                        <h4>Operating Systems</h4>
-
-                        <ul>
-                            <li>Debian, <span>7 years</span></li>
-                            <li>FreeBSD, <span>5 years</span></li>
-                            <li>Ubuntu, <span>1 year</span></li>
-                            <li>Gentoo, <span>1 year</span></li>
-                        </ul>
-                    </div><!-- /.col-* -->
-
-                    <div class="col-sm-4">
-                        <h4>Languages</h4>
-
-                        <ul>
-                            <li>English, <span>native</span></li>
-                            <li>German, <span>intermediate</span></li>
-                            <li>French, <span>beginner</span></li>
-                            <li>Spanish, <span>beginner</span></li>
-                        </ul>
-                    </div><!-- /.col-* -->
-                </div><!-- /.row -->
-            </div><!-- /.resume-chapter-content -->
-        </div><!-- /.resume-chapter-inner -->
-    </div><!-- /.resume-chapter -->
-</div><!-- /.resume -->
-
+                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
+                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
+                    <% end %>
+                </div><!-- /.positions-list-item -->
+            </div><!-- /.positions-list -->
+        </div><!-- /.col-sm-8 -->
+    </div><!-- /.row -->
 </div><!-- /.container -->

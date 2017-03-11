@@ -25,14 +25,11 @@ ActiveRecord::Schema.define(version: 20170306094332) do
 
   create_table "companies", force: :cascade do |t|
     t.string "cname"
-    t.string "category"
-    t.date   "sdate"
-    t.date   "edate"
-    t.string "role"
+    t.string "industry"
     t.string "email"
     t.string "website"
-    t.string "address"
-    t.text   "description"
+    t.string "location"
+    t.string "description"
   end
 
   create_table "edus", force: :cascade do |t|
@@ -41,6 +38,14 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.date   "edate"
     t.string "course"
     t.string "description"
+  end
+
+  create_table "experinces", force: :cascade do |t|
+    t.string "cname"
+    t.string "role"
+    t.date   "sdate"
+    t.date   "edate"
+    t.text   "description"
   end
 
   create_table "gigs", force: :cascade do |t|
@@ -54,9 +59,11 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.integer  "awarded_internship"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.integer  "company_id"
     t.integer  "category_id"
     t.integer  "user_id"
     t.index ["category_id"], name: "index_gigs_on_category_id"
+    t.index ["company_id"], name: "index_gigs_on_company_id"
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end
 

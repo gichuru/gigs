@@ -36,13 +36,18 @@ class InitialSchema < ActiveRecord::Migration[5.0]
 
     create_table :companies do |t|
       t.string  :cname
-      t.string  :category
-      t.date  :sdate
-      t.date  :edate
-      t.string  :role
+      t.string  :industry
       t.string  :email
       t.string  :website
-      t.string  :address
+      t.string  :location
+      t.string  :description
+    end
+
+    create_table :experinces do |t|
+      t.string  :cname
+      t.string  :role
+      t.date  :sdate
+      t.date  :edate
       t.text  :description
     end
 
@@ -55,10 +60,12 @@ class InitialSchema < ActiveRecord::Migration[5.0]
   	create_table :abilities do |t|
   	end
   	
-  	add_reference :gigs, :category, index: true
+  	add_reference :gigs, :company, index: true
+    add_reference :gigs, :category, index: true
   	add_reference :proposals, :gig, index: true
   	add_reference	:abilities, :gig, index: true
   	add_reference	:abilities, :skill, index: true 
+
   end
 
 end

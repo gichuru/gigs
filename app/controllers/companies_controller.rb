@@ -11,10 +11,12 @@ end
 def create
 	@company = Company.new (company_params)
 	@company.save!
-	redirect_to @profile	
+	redirect_to @company	
 end
 
 def show
+	@company = Company.find(params[:id])
+	@gigs = Gig.where(company_id: @company.id)
 
 end
 
@@ -24,7 +26,7 @@ private
 
 
 def company_params
-		params.require(:company).permit(:sname, :category, :sdate, :edate, :role, :email, :website, :address, :description)
+		params.require(:company).permit(:cname, :industry, :email, :website, :location, :description)
 	end
 
 
