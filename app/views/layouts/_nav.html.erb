@@ -6,8 +6,8 @@
                 <div class="header-brand">
                     <div class="header-logo">
                
-                            <i class="profession profession-logo"></i>
-                            <span class="header-logo-text"><%= link_to "In", root_path %> <span class="header-logo-highlight">:</span><%= link_to "Postme", root_path %></span>
+                        <i class="profession profession-logo"></i>
+                        <span class="header-logo-text"><%= link_to "In", root_path %> <span class="header-logo-highlight">:</span><%= link_to "Postme", root_path %></span>
                     </div><!-- /.header-logo-->
 
                     <div class="header-slogan">
@@ -17,9 +17,13 @@
                 </div><!-- /.header-brand -->
 
                 <ul class="header-actions nav nav-pills">
+
+                    <!--if user wants to post an internship, is user logged in? ask to log in, has User created a company? if not ask to create a company, if user has created a company, allow to create an internship under that company, user can create multiple companies and multiple internships under the company -->
+                   
                    <li><%= link_to "Create a company &raquo".html_safe, new_company_path, class: "primary" %>
+                    <li><%= link_to "Create your Resume".html_safe, new_resume_path, class: "primary" %>
+
                    <% if user_signed_in? %>
-               
                       <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                       <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
                     <% else %>

@@ -1,12 +1,12 @@
 <div class="container">
-	<h4 class ="center">Add Education</h4>
+	<h4 class ="center">Add Previous Work Experiencn</h4>
     <div class="col-sm-8"> 	
     	<div class= "row"> 
     		<div class="col-sm-10">
-                <%= form_for([@resume, @edu]) do |f| %>
+                <%= form_for([@resume, @job]) do |f| %>
     			<div class="form-group">
-    				<%= f.label :school %>
-    				<%= f.text_field :sname, autofocus: true, class: "form-control input-lg" %>
+    				<%= f.label :Company %>
+    				<%= f.text_field :cname, autofocus: true, class: "form-control input-lg" %>
     				<small class="healer block"> School name in full : i.e, University of Nairobi,   </small>
     			</div><!-- /.form-group -->
     		</div> 
@@ -28,8 +28,8 @@
 
                 <div class="col-sm-10">
                 <div class="form-group">
-                    <%= f.label :course %>
-                    <%= f.text_field :course,  class: "form-control input-lg" %>
+                    <%= f.label :role %>
+                    <%= f.text_field :role,  class: "form-control input-lg" %>
                     <small class="healer block"> Course you took or are taking </small>
                 </div><!-- /.form-group -->
                 </div>
@@ -43,12 +43,11 @@
     		
             </div>
 
-            <div class="col-sm-3">
-                <div class="form-group">
-                 <%= f.submit "Click to Add ", class: "btn btn-secondary btn-block" %>
-                </div>
-	</div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                     <%= f.submit "Click to Add ", class: "btn btn-secondary btn-block" %>
+                    </div>
+	           </div>
 		<% end %>
-
 </div><!-- /.col-* -->
 

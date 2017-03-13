@@ -1,42 +1,71 @@
+ <div class="container">
+    <div class="row">
+    <div class="col-sm-9">
+        <h2 class="page-header">Displaying <strong><%= Company.count %></strong> Companies that are hiring Interns</h2>
+        <div class="companies-list">
+            <% @company.each do |company| %> 
+                <div class="companies-list-item">
+                    <div class="companies-list-item-image">
+                        (logo)
+                    </div><!-- /.companies-list-item-image -->
 
-<div class="container">
-	<div class="row">
-		<div class="col-sm-9">
-			<h2 class="page-header"><strong>215</strong> candidates matching your query</h2>
+                    <div class="companies-list-item-heading">
+                        <h2><%= link_to company.cname, company %></h2>
+                        <h3><%= company.location %></h3>
+                    </div><!-- /.companies-list-item-heading -->
 
-			<div class="candidates-list">
-	
-        	<div class="candidates-list-item">
-                <div class="candidates-list-item-heading">
-            		<div class="candidates-list-item-image">
-            			<a href="#">
-            				<img src="assets/img/tmp/resume.jpg" alt="Elliot Sarah Scott">
-            			</a>
+                    <div class="companies-list-item-count">
+                        <a href="#">4 open positions</a>
+                    </div><!-- /.positions-list-item-count -->
 
-                        
-                            <a href="#" class="candidates-list-item-image-label">
-                                <img src="assets/img/tmp/instagram.png" alt="">
-                            </a>                    
-                        
-            		</div><!-- /.candidates-list-item-image -->
+                    <div class="companies-list-item-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <p class="count"> Interns</p>
+                        <span class="companies-list-item-rating-count">53</span>
+                         <span class="pcompanies-list-item-rating-count"><%= link_to "Delete", company, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+                    </div><!-- /.companies-list-item-rating -->
+                </div><!-- /.companies-list-item -->
+            <% end %>
 
-                    <div class="candidates-list-item-title">
-                        <h2><a href="resume.html">Elliot Sarah Scott</a></h2>
-                        <h3>Data Analytist</h3>
-                    </div><!-- /.candidates-list-item-title -->
-                </div><!-- /.candidates-list-item-heading -->
+        </div><!-- /.companies-list -->
 
-                    <div class="candidates-list-item-location">
-                        <i class="fa fa-map-marker"></i> San Francisco, California
-                    </div><!-- /.candidates-list-item-location -->
 
-                <div class="candidates-list-item-profile">
-                    <span class="candidates-list-item-profile-count">92% completed</span>
-                	<span class="candidates-list-item-profile-bar"><span style="width: 92%"></span></span>                
-                </div><!-- /.candidates-list-item-rating -->    		
-        	</div><!-- /.candidates-list-item --> 	
-            </div><!-- /.containert -->
-        </div>
-    </div>
-</div>
 
+<!-- <div class="center">
+    <ul class="pagination">
+        <li>
+            <a href="#">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+        </li>
+
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li class="active"><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+            <a href="#">
+                <i class="fa fa-chevron-right"></i>
+            </a>
+        </li>
+    </ul>
+  </div> --><!-- /.center -->
+    </div><!-- /.col-* -->
+
+    <div class="sidebar col-sm-3">
+        <h2>Open Positions</h2>
+
+        <div class="positions-list-small">
+            <div class="positions-list-small-item">
+                <h2><a href="#">UX/UI Senior Designer</a></h2>
+                <h3><span>(logo))</span> Dropbox Inc. <br>San Francisco, California</h3>
+            </div>
+        </div><!-- /.positions-list-small -->
+    </div><!-- /.col-* -->
+</div><!-- /.row -->
+
+</div><!-- /.container -->

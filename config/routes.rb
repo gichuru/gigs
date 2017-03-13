@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 	resources :companies do
 		resources	:gigs
 		resources	:proposals
-end
-	root 'companies#index'
+	end
+
+	resources :resumes do
+		resources :edus
+		resources	:jobs
+	end
+	root 'resumes#index'
 end

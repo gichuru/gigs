@@ -33,19 +33,13 @@ ActiveRecord::Schema.define(version: 20170306094332) do
   end
 
   create_table "edus", force: :cascade do |t|
-    t.string "sname"
-    t.date   "sdate"
-    t.date   "edate"
-    t.string "course"
-    t.string "description"
-  end
-
-  create_table "experinces", force: :cascade do |t|
-    t.string "cname"
-    t.string "role"
-    t.date   "sdate"
-    t.date   "edate"
-    t.text   "description"
+    t.string  "sname"
+    t.date    "sdate"
+    t.date    "edate"
+    t.string  "course"
+    t.string  "description"
+    t.integer "resume_id"
+    t.index ["resume_id"], name: "index_edus_on_resume_id"
   end
 
   create_table "gigs", force: :cascade do |t|
@@ -67,10 +61,14 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.string "bio"
-    t.date   "age"
-    t.string "phone"
+  create_table "jobs", force: :cascade do |t|
+    t.string  "cname"
+    t.string  "role"
+    t.date    "sdate"
+    t.date    "edate"
+    t.text    "description"
+    t.integer "resume_id"
+    t.index ["resume_id"], name: "index_jobs_on_resume_id"
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -81,6 +79,14 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.integer  "user_id"
     t.index ["gig_id"], name: "index_proposals_on_gig_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string "fname"
+    t.string "lname"
+    t.string "bio"
+    t.date   "age"
+    t.string "phone"
   end
 
   create_table "skills", force: :cascade do |t|

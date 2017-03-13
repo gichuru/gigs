@@ -4,8 +4,22 @@
     <p class ="center"> <strong>Your bio data >> </strong>  Education  >> Work Experience  >> Skills/Hobbies  >> Referees </p>
 </div>
     <div class="col-sm-8">
-			<%= form_for @profile do |f| %>
-    	<div class= "row"> 
+			<%= form_for @resume do |f| %>
+    	<div class= "row">
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <%= f.label :first_name %>
+                    <%= f.text_field :fname, autofocus: true, class: "form-control input-lg" %>
+                    <small class="healer block"> Your First Name </small>
+                </div><!-- /.form-group -->
+            </div> 
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <%= f.label :last_name %>
+                    <%= f.text_field :lname, autofocus: true, class: "form-control input-lg" %>
+                    <small class="healer block"> Your Last Name </small>
+                </div><!-- /.form-group -->
+            </div> 
     		<div class="col-sm-5">
     			<div class="form-group">
     				<%= f.label :age %>

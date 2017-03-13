@@ -20,7 +20,9 @@ class InitialSchema < ActiveRecord::Migration[5.0]
   		t.string	:name
   	end
 
-    create_table :profiles do |t|
+    create_table :resumes do |t|
+      t.string  :fname
+      t.string  :lname
       t.string  :bio
       t.date  :age
       t.string  :phone
@@ -43,7 +45,7 @@ class InitialSchema < ActiveRecord::Migration[5.0]
       t.string  :description
     end
 
-    create_table :experinces do |t|
+    create_table :jobs do |t|
       t.string  :cname
       t.string  :role
       t.date  :sdate
@@ -62,6 +64,8 @@ class InitialSchema < ActiveRecord::Migration[5.0]
   	
   	add_reference :gigs, :company, index: true
     add_reference :gigs, :category, index: true
+    add_reference :edus, :resume, index: true
+    add_reference :jobs, :resume, index: true
   	add_reference :proposals, :gig, index: true
   	add_reference	:abilities, :gig, index: true
   	add_reference	:abilities, :skill, index: true 

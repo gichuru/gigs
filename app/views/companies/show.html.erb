@@ -1,29 +1,28 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
-            <div class="company-card">
-    <div class="company-card-image">
-        <span>Employer Details</span>
-        logo goes here
-    </div><!-- /.company-card-image -->
+          <div class="company-card">
+            <div class="company-card-image">
+                <span>Employer Details</span>
+                logo goes here
+            </div><!-- /.company-card-image -->
+                <div class="company-card-data">
+                    <dl>
+                       
+                        <dt>E-mail</dt>
+                        <dd><%= @company.email %></dd>
 
-    <div class="company-card-data">
-        <dl>
-           
-            <dt>E-mail</dt>
-            <dd><%= @company.email %></dd>
+                         <dt>Website</dt>
+                        <dd><%= @company.website %></dd>
 
-             <dt>Website</dt>
-            <dd><%= @company.website %></dd>
+                        <dt>Phone</dt>
+                        <dd>coming soonn</dd>
 
-            <dt>Phone</dt>
-            <dd>coming soonn</dd>
-
-            <dt>Location</dt>
-            <dd><%= @company.location %></dd>
-        </dl>
-    </div><!-- /.company-card-data -->
-</div><!-- /.company-card -->
+                        <dt>Location</dt>
+                        <dd><%= @company.location %></dd>
+                    </dl>
+                </div><!-- /.company-card-data -->
+        </div><!-- /.company-card -->
 
 
             <!--<div class="widget">
@@ -60,7 +59,7 @@
             <div class="company-header">
               
 
-                <h1><%= @company.cname %><span>industry</span></h1>
+                <h1><%= @company.cname%><span>industry</span></h1>
 
                 <%= link_to "Post an Internship".html_safe, new_company_gig_path(@company), class: "btn btn-secondary" %>
             </div><!-- /.company-header -->
@@ -68,7 +67,7 @@
             <div class="company-stats">
                 <div class="company-stat">
                     <span>Positions</span>
-                    <strong>12</strong>
+                    <strong><%= Gig.count %></strong>
                 </div><!-- /.company-stat -->
 
                 <div class="company-stat">
@@ -89,20 +88,16 @@
             <h3 class="page-header">Open Positions</h3>
 
             <div class="positions-list">
-                <% @gigs.each do |gig| %> 
+                    <% @gigs.each do |gig| %> 
                 <div class="positions-list-item">
-
-                    <h2><%= link_to gig.name %></h2>
+                    <h2><%= link_to gig.name, company_gig_path(@company, gig) %></h2>
                     <h3><span>(logo)</span> San Francisco, Dropbox <br></h3>
-                    <p><%= gig.location %></p>
-                    <%= gig.duration %>
-                    <%= gig.startdate %>
-                    
-
+                        <p><%= gig.location %></p>
+                        <p>Duration: <%= gig.duration %> Start Date: <%= gig.startdate %></p>
                     <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
-                    <div class="position-list-item-action"><a href="#">Save Position</a></div><!-- /.position-list-item-action -->
-                    <% end %>
-                </div><!-- /.positions-list-item -->
+                    <div class="position-list-item-action"><%= link_to "Delete", company_gig_path(@company, gig), method: :delete %></div><!-- /.position-list-item-action -->
+                <% end %>
+                    </div><!-- /.positions-list-item -->
             </div><!-- /.positions-list -->
         </div><!-- /.col-sm-8 -->
     </div><!-- /.row -->

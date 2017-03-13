@@ -6,4 +6,5 @@ class User < ApplicationRecord
         has_many	:gigs
         has_many	:proposals
         has_many	:edus
+        has_many	:resumes
 end

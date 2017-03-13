@@ -1,8 +1,9 @@
 class GigsController < ApplicationController
 	 before_action :set_company
+	 before_action :set_gig, only: [:index, :show, :edit, :update, :destroy]
 
 	def index
-		@gig = Gig.all.order("created_at DESC").page(params[:page]).per(20)
+		@gig = Gig.all
 	end
 
 	def new
@@ -17,8 +18,16 @@ class GigsController < ApplicationController
 	end
 
 	def show
+
 		@gig = Gig.find(params[:id])
+
 	end
+
+	def destroy
+		@gig.destroy
+		redirect_to company_path(@company)
+	end
+
 
 	
 #private stuff
@@ -26,6 +35,10 @@ class GigsController < ApplicationController
 
 	def set_company
 		@company = Company.find(params[:company_id])	
+	end
+
+	def set_gig
+		@gig = Gig.find_by(:id => params[:id])
 	end
 
 	def gig_params

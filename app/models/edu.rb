@@ -1,3 +1,3 @@
 class Edu < ApplicationRecord
-        has_many	:users
+     belongs_to	:resume
 end
