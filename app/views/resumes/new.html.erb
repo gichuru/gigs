@@ -33,6 +33,14 @@
     				<small class="healer block"> Only verified employers can see this</small>
     			</div><!-- /.form-group -->
     		</div>
+            <div class="col-sm-10">
+                <div class="form-group">
+                    <%= f.label :Address %>
+                    <%= f.text_field :address, autofocus: true, class: "form-control input-lg" %>
+                    <small class="healer block"> Enter city and country, i.e Nairobi, Kenya </small>
+                </div><!-- /.form-group -->
+            </div>
+
              <div class="col-sm-10">
                 <div class="form-group">
                     <%= f.label :Type %>

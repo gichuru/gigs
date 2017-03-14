@@ -25,6 +25,7 @@ class InitialSchema < ActiveRecord::Migration[5.0]
       t.string  :lname
       t.date  :age
       t.string  :phone
+      t.string  :address
       t.string  :category
       t.string  :bio
 

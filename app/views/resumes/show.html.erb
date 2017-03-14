@@ -7,15 +7,14 @@
 
         <div class="resume-main-content">
             <h2><%= @resume.fname %><%= @resume.lname %>
-                <span class="resume-main-verified">v<i class="fa fa-check"></i></span>
+                <!-- <span class="resume-main-verified">v<i class="fa fa-check"></i></span> -->
             </h2>
 
             <h3><%= @resume.category %></h3><br>
             <small class="resume-main-contacts">
-                Timothy Blvd, Silicon Valley, California<br>
-                 <%= @resume.phone %>
-                Email: <%= current_user.email %>
-            </small>
+                 Phone <%= @resume.phone %> | Email: <%= current_user.email %> | From: <%= @resume.address %>
+            </small><br>
+            <span class="companies-list-item-rating-count"><%= link_to "Delete this resume", @resume, method: :delete, data: { confirm: 'Are you sure? this will destory the resume completely' } %></span> 
          <!-- <div class="resume-main-actions">
                 <a href="#" class="btn btn-secondary"><i class="fa fa-download"></i> Download</a>
                 <a href="#" class="btn btn-default">Contact</a>
@@ -41,12 +40,13 @@
     <div class="resume-chapter">
         <div class="resume-chapter-inner">
             <div class="resume-chapter-content">
-                <h2 class="mb40">Experience: <span> <%= link_to "Add",  new_resume_job_path(@resume), class: "btn btn-secondary" %></span></h2>
+                <h2 class="mb40">Experience: <span> 
+                    <%= link_to "Add",  new_resume_job_path(@resume), class: "btn btn-secondary" %></span></h2>
 
                 <dl>
                     <% @jobs.each do |job| %>
 
-                    <dt><%= job.sdate %> - <%= job.edate %> </dt>
+                    <dt><%= job.sdate.strftime ("%Y") %> - <%= job.edate.strftime ("%Y") %> </dt>
                     <dd>
                         <Strong><%= job.cname %></Strong><br>
                         <i class="small"><%= job.role %></i>

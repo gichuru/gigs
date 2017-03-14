@@ -22,18 +22,18 @@
 
                     <div class="candidates-list-item-title">
                         <h2><%= link_to resume.fname, resume %> <%= link_to resume.lname, resume %></a></h2>
-                        <h3>Data Analytist</h3>
+                        <h3><%= resume.category %></h3>
                     </div><!-- /.candidates-list-item-title -->
                 </div><!-- /.candidates-list-item-heading -->
 
                     <div class="candidates-list-item-location">
-                        <i class="fa fa-map-marker"></i> San Francisco, California
+                        <i class="fa fa-map-marker"></i> <%= resume.address %>
                     </div><!-- /.candidates-list-item-location -->
 
                 <div class="candidates-list-item-profile">
                     <span class="candidates-list-item-profile-count">92% completed</span>
                 	<span class="candidates-list-item-profile-bar"><span style="width: 92%"></span></span>
-                    <span class="companies-list-item-rating-count"><%= link_to "Delete", resume, method: :delete, data: { confirm: 'Are you sure?' } %></span>                
+                                   
                 </div><!-- /.candidates-list-item-rating -->    		
         	</div><!-- /.candidates-list-item -->
             <% end %> 	

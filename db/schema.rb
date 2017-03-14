@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20170306094332) do
     t.string  "lname"
     t.date    "age"
     t.string  "phone"
+    t.string  "address"
     t.string  "category"
     t.string  "bio"
     t.integer "user_id"
