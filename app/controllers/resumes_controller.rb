@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
-
-	#before_action :set_resume, only: [:index, :show, :edit, :update, :destroy]
+	before_action :set_resume, only: [:index, :show, :edit, :update, :destroy]
+	before_action :authenticate_user!, except: [:index]
 
 	def index
 		@resume = Resume.all
@@ -12,6 +12,7 @@ class ResumesController < ApplicationController
 
 	def create
 		@resume = Resume.new (resume_params)
+		@resume.user_id = current_user.id
 		@resume.save!
 		redirect_to @resume
 	end
@@ -31,7 +32,11 @@ class ResumesController < ApplicationController
 private
 
 	def resume_params
-		params.require(:resume).permit(:fname, :lname, :age, :bio, :phone)
+		params.require(:resume).permit(:fname, :lname, :age, :phone, :category, :bio)
+	end
+
+	def set_resume
+		
 	end
 
 end

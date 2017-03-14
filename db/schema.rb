@@ -82,11 +82,14 @@ ActiveRecord::Schema.define(version: 20170306094332) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
-    t.string "bio"
-    t.date   "age"
-    t.string "phone"
+    t.string  "fname"
+    t.string  "lname"
+    t.date    "age"
+    t.string  "phone"
+    t.string  "category"
+    t.string  "bio"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_resumes_on_user_id"
   end
 
   create_table "skills", force: :cascade do |t|

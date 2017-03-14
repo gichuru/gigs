@@ -2,53 +2,67 @@
 	<h4 class ="center">Add Education</h4>
     <div class="col-sm-8"> 	
     	<div class= "row"> 
-    		<div class="col-sm-10">
-                <%= form_for([@resume, @edu]) do |f| %>
-    			<div class="form-group">
-    				<%= f.label :school %>
-    				<%= f.text_field :sname, autofocus: true, class: "form-control input-lg" %>
-    				<small class="healer block"> School name in full : i.e, University of Nairobi,   </small>
-    			</div><!-- /.form-group -->
-    		</div> 
-            <div class="col-sm-5">
-                <div class="form-group">
-                    <%= f.label :Start_Date %>
-                    <%= f.date_field :sdate,  class: "form-control input-lg" %>
-                    <small class="healer block"> Start Date</small>
-                </div><!-- /.form-group -->
-            </div> 
-    	
-            <div class="col-sm-5">
+            <%= form_for([@resume, @edu]) do |f| %>
+        		<div class="col-sm-10">   
+        			<div class="form-group">
+        				<%= f.label :school %>
+        				<%= f.text_field :sname, autofocus: true, class: "form-control input-lg" %>
+        				<small class="healer block"> School name in full : i.e, University of Nairobi,   </small>
+        			</div><!-- /.form-group -->
+        		</div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <%= f.label :Start_Date %>
+                        <%= f.date_field :sdate,  class: "form-control input-lg" %>
+                        <small class="healer block"> Start Date</small>
+                    </div><!-- /.form-group -->
+                </div> 
+                <div class="col-sm-5">
                     <div class="form-group">
                         <%= f.label :End_Date %>
                         <%= f.date_field :edate,  class: "form-control input-lg" %>
                         <small class="healer block"> End date or Your target graduation date </small>
                     </div><!-- /.form-group -->
                 </div> 
+                <div class="col-sm-10">
+                    <div class="form-group">
+                        <%= f.label :course %>
+                        <%= f.text_field :course,  class: "form-control input-lg" %>
+                        <small class="healer block"> Course you took or are taking </small>
+                    </div><!-- /.form-group -->
+                </div>
 
                 <div class="col-sm-10">
-                <div class="form-group">
-                    <%= f.label :course %>
-                    <%= f.text_field :course,  class: "form-control input-lg" %>
-                    <small class="healer block"> Course you took or are taking </small>
-                </div><!-- /.form-group -->
-                </div>
-                <div class="col-sm-10">
-                <div class="form-group">
-                    <%= f.label :description %>
-                    <%= f.text_area :description,  class: "form-control input-lg" %>
-                    <small class="healer block"> More information about your studies</small>
-                </div><!-- /.form-group -->
+                    <div class="form-group">
+                        <%= f.label :description %>
+                        <%= f.text_area :description,  class: "form-control input-lg" %>
+                        <small class="healer block"> More information about your studies</small>
+                    </div><!-- /.form-group -->
                 </div> 
-    		
-            </div>
 
-            <div class="col-sm-3">
-                <div class="form-group">
-                 <%= f.submit "Click to Add ", class: "btn btn-secondary btn-block" %>
-                </div>
-	</div>
-		<% end %>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                     <%= f.submit "Click to Add ", class: "btn btn-secondary btn-block" %>
+                    </div>
+    	       </div>
+		  <% end %>
+        </div> <!-- End or Row-->
+    </div><!-- /.col-sm-8-->
 
-</div><!-- /.col-* -->
+    <div class="col-sm-4">
+        <div class="widget">
+            <h2>Your profile information</h2>
+            <ul class="nav">
+                <li><span>1.</span> First and Last Name </li>
+                <li><span>2.</span> Date of birth (calculates age)</li>
+                <li><span>3.</span> Phone (hidden to the public)</li>
+            </ul>
+        </div><!-- /.widget --> 
+        <div class="widget">
+            <h2>Your Bio</h2>
+            <p>Start it with "I'm a student at ABC School and I am looking for internship in (category), I'm hardworking etc" </p>
+
+        </div><!-- /.widget -->   
+    </div><!-- /.col-* -->
+</div><!-- /.container -->
 

@@ -1,8 +1,7 @@
 <div class="container">
-     <div class="col-sm-12">
-	<h4 class ="center">Create your Resume 5 Steps</h4>
-    <p class ="center"> <strong>Your bio data >> </strong>  Education  >> Work Experience  >> Skills/Hobbies  >> Referees </p>
-</div>
+        <div class="col-sm-12">
+	       <h4 class ="center">Create Your Resume</h4>
+        </div>
     <div class="col-sm-8">
 			<%= form_for @resume do |f| %>
     	<div class= "row">
@@ -34,6 +33,13 @@
     				<small class="healer block"> Only verified employers can see this</small>
     			</div><!-- /.form-group -->
     		</div>
+             <div class="col-sm-10">
+                <div class="form-group">
+                    <%= f.label :Type %>
+                    <%= f.text_field :category, autofocus: true, class: "form-control input-lg" %>
+                    <small class="healer block"> Enter the Kind of internship you are looking for </small>
+                </div><!-- /.form-group -->
+            </div>
     		<div class="col-sm-10">
     			<div class="form-group">
     				<%= f.label :bio %>
@@ -41,6 +47,7 @@
     				<small class="healer block"> About yourself, start with "I'm a.. " </small>
     			</div><!-- /.form-group -->
     		</div>
+
     		
             </div>
     		<div class="col-sm-3">
@@ -51,12 +58,20 @@
 	</div>
 		<% end %>
 
-<!-- Work Experience -->
- 
+    <div class="col-sm-4">
+        <div class="widget">
+            <h2>Your profile information</h2>
+            <ul class="nav">
+                <li><span>1.</span> First and Last Name </li>
+                <li><span>2.</span> Date of birth (calculates age)</li>
+                <li><span>3.</span> Phone (hidden to the public)</li>
+            </ul>
+        </div><!-- /.widget --> 
+        <div class="widget">
+            <h2>Your Bio</h2>
+            <p>Start your bio with "I'm a student at ABC School and I am looking for internship in (category), I'm hardworking etc" </p>
 
-<!-- Education Experience -->
-
- 
-
+        </div><!-- /.widget -->   
+    </div><!-- /.col-* -->
 
 </div><!-- /.col-* -->

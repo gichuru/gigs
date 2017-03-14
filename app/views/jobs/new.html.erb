@@ -1,53 +1,50 @@
 <div class="container">
 	<h4 class ="center">Add Previous Work Experiencn</h4>
     <div class="col-sm-8"> 	
-    	<div class= "row"> 
-    		<div class="col-sm-10">
-                <%= form_for([@resume, @job]) do |f| %>
-    			<div class="form-group">
-    				<%= f.label :Company %>
-    				<%= f.text_field :cname, autofocus: true, class: "form-control input-lg" %>
-    				<small class="healer block"> School name in full : i.e, University of Nairobi,   </small>
-    			</div><!-- /.form-group -->
-    		</div> 
-            <div class="col-sm-5">
-                <div class="form-group">
-                    <%= f.label :Start_Date %>
-                    <%= f.date_field :sdate,  class: "form-control input-lg" %>
-                    <small class="healer block"> Start Date</small>
-                </div><!-- /.form-group -->
-            </div> 
-    	
-            <div class="col-sm-5">
+    	<div class= "row">
+            <%= form_for([@resume, @job]) do |f| %> 
+        		<div class="col-sm-10">
+        			<div class="form-group">
+        				<%= f.label :Company %>
+        				<%= f.text_field :cname, autofocus: true, class: "form-control input-lg" %>
+        				<small class="healer block"> School name in full : i.e, University of Nairobi,   </small>
+        			</div><!-- /.form-group -->
+        		</div> 
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <%= f.label :Start_Date %>
+                        <%= f.date_field :sdate,  class: "form-control input-lg" %>
+                        <small class="healer block"> Start Date</small>
+                    </div><!-- /.form-group -->
+                </div> 
+                <div class="col-sm-5">
                     <div class="form-group">
                         <%= f.label :End_Date %>
                         <%= f.date_field :edate,  class: "form-control input-lg" %>
                         <small class="healer block"> End date or Your target graduation date </small>
                     </div><!-- /.form-group -->
                 </div> 
-
                 <div class="col-sm-10">
-                <div class="form-group">
-                    <%= f.label :role %>
-                    <%= f.text_field :role,  class: "form-control input-lg" %>
-                    <small class="healer block"> Course you took or are taking </small>
-                </div><!-- /.form-group -->
+                    <div class="form-group">
+                        <%= f.label :role %>
+                        <%= f.text_field :role,  class: "form-control input-lg" %>
+                        <small class="healer block"> Course you took or are taking </small>
+                    </div><!-- /.form-group -->
                 </div>
                 <div class="col-sm-10">
-                <div class="form-group">
-                    <%= f.label :description %>
-                    <%= f.text_area :description,  class: "form-control input-lg" %>
-                    <small class="healer block"> More information about your studies</small>
-                </div><!-- /.form-group -->
+                    <div class="form-group">
+                        <%= f.label :description %>
+                        <%= f.text_area :description,  class: "form-control input-lg" %>
+                        <small class="healer block"> More information about your studies</small>
+                    </div><!-- /.form-group -->
                 </div> 
-    		
-            </div>
-
                 <div class="col-sm-3">
                     <div class="form-group">
                      <%= f.submit "Click to Add ", class: "btn btn-secondary btn-block" %>
                     </div>
 	           </div>
-		<% end %>
-</div><!-- /.col-* -->
+		  <% end %>
+        </div>
+    </div><!-- /.col-sm-8 -->
+</div><!-- /.container -->
 

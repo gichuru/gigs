@@ -7,31 +7,20 @@
 
         <div class="resume-main-content">
             <h2><%= @resume.fname %><%= @resume.lname %>
-                <span class="resume-main-verified"><i class="fa fa-check"></i></span>
-
-               <!--  <span class="resume-main-rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <span class="resume-main-rating-count">/ 32</span>
-                </span> --><!-- /.resume-main-rating -->
+                <span class="resume-main-verified">v<i class="fa fa-check"></i></span>
             </h2>
 
-            <h3>Senior Data Analytist</h3>
-            
-            <p class="resume-main-contacts">
+            <h3><%= @resume.category %></h3><br>
+            <small class="resume-main-contacts">
                 Timothy Blvd, Silicon Valley, California<br>
                  <%= @resume.phone %>
-                Email: <a href="mailto:hello@example.com"></a> - Website: <a href="http://example.com">www.example.com</a>
-            </p><!-- /.resume-main-contact -->
-
-          <!--   <div class="resume-main-actions">
+                Email: <%= current_user.email %>
+            </small>
+         <!-- <div class="resume-main-actions">
                 <a href="#" class="btn btn-secondary"><i class="fa fa-download"></i> Download</a>
                 <a href="#" class="btn btn-default">Contact</a>
-                <a href="#" class="btn btn-default">Save</a>
-            </div> --><!-- /.resume-main-actions -->
+                <a href="#" class="btn btn-default">Follow</a>
+            </div>  --><!-- /.resume-main-actions -->
         </div><!-- /.resume-main-content -->
     </div><!-- /.resume-main -->
 
@@ -87,51 +76,26 @@
             </div><!-- /.resume-chapter-content -->
         </div><!-- /.resume-chapter-inner -->
     </div><!-- /.resume-chapter -->
-
-    <div class="resume-chapter">
+ <div class="resume-chapter">
         <div class="resume-chapter-inner">
-            <div class="resume-chapter-title">
-                <h2>Skills</h2>
-            </div><!-- /.resume-chapter-title -->
-
             <div class="resume-chapter-content">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h4>Frameworks</h4>
+                <h2 class="mb40">Skills: <span> <%= link_to "Add",  new_resume_edu_path(@resume), class: "btn btn-secondary" %></span></h2>
 
-                        <ul>
-                            <li>Laravel, <span>4 years</span></li>
-                            <li>Zend, <span>3 years</span></li>
-                            <li>CakePHP, <span>1 year</span></li>
-                            <li>Yii, <span>1 year</span></li>
-                        </ul>
-                    </div><!-- /.col-* -->
+                <dl>
+                    <% @edus.each do |edu| %>
 
-                    <div class="col-sm-4">
-                        <h4>Operating Systems</h4>
-
-                        <ul>
-                            <li>Debian, <span>7 years</span></li>
-                            <li>FreeBSD, <span>5 years</span></li>
-                            <li>Ubuntu, <span>1 year</span></li>
-                            <li>Gentoo, <span>1 year</span></li>
-                        </ul>
-                    </div><!-- /.col-* -->
-
-                    <div class="col-sm-4">
-                        <h4>Languages</h4>
-
-                        <ul>
-                            <li>English, <span>native</span></li>
-                            <li>German, <span>intermediate</span></li>
-                            <li>French, <span>beginner</span></li>
-                            <li>Spanish, <span>beginner</span></li>
-                        </ul>
-                    </div><!-- /.col-* -->
-                </div><!-- /.row -->
+                    <dt><%= edu.sdate.strftime ("%Y") %> - <%= edu.edate.strftime ("%Y") %> </dt>
+                    <dd>
+                        <Strong><%= edu.sname %></Strong><br>
+                        <i class="small"><%= edu.course %></i>
+                        <p><%= edu.description %></p>
+                    </dd>
+                    <% end %>      
+                </dl>
             </div><!-- /.resume-chapter-content -->
         </div><!-- /.resume-chapter-inner -->
     </div><!-- /.resume-chapter -->
+        </div><!-- /.resume-chapter-inner -->
 </div><!-- /.resume -->
 
 </div><!-- /.container -->
