@@ -7,7 +7,7 @@
                     </div><!-- /.companies-list-item-image -->
 
                     <div class="companies-list-item-heading col-sm-4">
-                        <h2><%= link_to gig.name %> <span class="label label-success"><%= gig.budget %></span>
+                        <h2><%= link_to gig.name, gig_path(gig) %> <span class="label label-success"><%= gig.budget %></span>
                            </h2>
                         <h2>Company Name goes here</h2>
                         <small><%= gig.location %></Small>

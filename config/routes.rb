@@ -6,10 +6,13 @@ Rails.application.routes.draw do
 		resources	:gigs
 		resources	:proposals
 	end
+	resources	:gigs
 
 	resources :resumes do
 		resources :edus
 		resources	:jobs
 	end
-	root 'resumes#index'
+
+		root 'gigs#index'
+
 end

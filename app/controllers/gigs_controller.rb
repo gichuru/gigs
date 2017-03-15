@@ -1,5 +1,5 @@
 class GigsController < ApplicationController
-	 before_action :set_company
+	 before_action :set_company, except: [:index, :show]
 	 before_action :set_gig, only: [:index, :show, :edit, :update, :destroy]
 
 	def index

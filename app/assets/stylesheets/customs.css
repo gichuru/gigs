@@ -16362,7 +16362,7 @@ textarea.form-control {
 /**
  * ezMark
  */
-.ez-hide {
+./*ez-hide {
   opacity: 0; }
 
 .ez-checkbox {
@@ -16388,7 +16388,7 @@ textarea.form-control {
 
 .ez-selected {
   background-image: url("../img/radio-open.png"); }
-
+*/
 /**
  * Wysiwyg
  */
