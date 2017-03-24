@@ -25,7 +25,7 @@
                    
 
                    <% if user_signed_in? && current_user.is_employer? %>
-                        <li><%= link_to "Post a job".html_safe, new_resume_path, class: "primary" %></li>
+                        <li><%= link_to "Post a Job &raquo".html_safe, new_company_path, class: "primary" %> 
                    <% else %>
                         <li><%= link_to "Create your Resume".html_safe, new_resume_path, class: "primary" %></li>
                     <% end %>
