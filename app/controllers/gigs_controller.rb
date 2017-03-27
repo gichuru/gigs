@@ -18,9 +18,8 @@ class GigsController < ApplicationController
 	end
 
 	def show
-
 		@gig = Gig.find(params[:id])
-
+		@company = Company.where(gig_id: @gig.id)
 	end
 
 	def destroy
@@ -42,7 +41,7 @@ class GigsController < ApplicationController
 	end
 
 	def gig_params
-		params.require(:gig).permit(:name, :description, :budget, :startdate, :duration, :location)
+		params.require(:gig).permit(:name, :description, :budget, :startdate, :duration, :location, :category_id, :skill_list)
 	end
 
 

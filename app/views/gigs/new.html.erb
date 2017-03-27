@@ -9,21 +9,37 @@
     			<div class="form-group">
     				<%= f.label :Position %>
     				<%= f.text_field :name, autofocus: true, class: "form-control input-lg" %>
-    				<small class="healer block"> Data entry, writer, receptinist etc </small>
     			</div><!-- /.form-group -->
+                
     		</div> 
+            <div class="col-sm-10">
+                <div class="form-group">
+                    <%= f.label :category_id %>
+                    <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), { }, class: "form-control " %>
+                </div><!-- /.form-group -->
+                
+            </div>
     		<div class="col-sm-10">
     			<div class="form-group">
     				<%= f.label :description %>
     				<%= f.text_area :description, class: "form-control" %>
-    				<small class="healer block"> What are the expectations and working hours, mentorship opportunities etc </small>
     			</div><!-- /.form-group -->
     		</div>
+            <div class="col-sm-10">
+               
+                <div class="form-group">
+                    <%= f.label :skills %>
+                     <small>required for this internship</small>
+                    <%= f.text_area :skill_list, rows: 3,  class: "form-control" %>
+                </div><!-- /.form-group -->
+                 
+            </div>
+           
     		<div class="col-sm-10">
     			<div class="form-group">
     				<%= f.label :location %>
     				<%= f.text_field :location, class: "form-control " %>
-    				<small class="healer block"> leave blank if  location is (insert code from registered office) </small>
+    				
     			</div><!-- /.form-group -->
     		</div>
             <div class="col-sm-3">
@@ -33,14 +49,13 @@
                       <div class="input-group-addon">Kshs</div>
                       <%= f.number_field :budget, class: "form-control" %>
                         </div>
-                    <small class="healer block"> Free or min Kshs 5000 </small>
+                    
                 </div><!-- /.form-group -->
             </div>
             <div class="col-sm-3">
                 <div class="form-group">
                     <%= f.label :duration %>
                     <%= f.number_field :duration, class: "form-control" %>
-                    <small class="healer block"> weeks or months </small>
                     
                 </div>
             </div>
