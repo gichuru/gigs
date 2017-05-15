@@ -69,10 +69,13 @@ class InitialSchema < ActiveRecord::Migration[5.0]
     add_reference :gigs, :company, index: true
     add_reference :gigs, :category, index: true
     add_reference :edus, :resume, index: true
+    add_reference :skills, :resume, index: true
     add_reference :jobs, :resume, index: true
   	add_reference :proposals, :gig, index: true
   	add_reference	:abilities, :gig, index: true
-  	add_reference	:abilities, :skill, index: true 
+  	add_reference	:abilities, :skill, index: true
+    add_reference :companies, :user, index: true 
+
 
   end
 

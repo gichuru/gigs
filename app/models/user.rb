@@ -7,4 +7,5 @@ class User < ApplicationRecord
         has_many	:proposals
         has_many	:edus
         has_many	:resumes
+        has_many	:companies
 end

@@ -21,6 +21,7 @@ class ResumesController < ApplicationController
 		@resume = Resume.find(params[:id])
 		@jobs = Job.where(resume_id: @resume.id)
 		@edus = Edu.where(resume_id: @resume.id)
+		@skills = Skill.where(resume_id: @resume.id)
 
 	end
 

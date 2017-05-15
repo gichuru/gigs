@@ -20,12 +20,12 @@ location = [
 
 User.where(email: "testing@testing.com").first_or_create(email: "Ninja boss", password: "12")
 
-10.times do
+5.times do
 	User.create( email: Faker::Internet.email, password: "pwd")
 end
 
 
-20.times do 
+3.times do 
 	Gig.create(name: Faker::Name.title,
 				description: Faker::Lorem.paragraph(5),
 				budget: rand(5000..50000),

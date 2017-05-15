@@ -79,16 +79,14 @@
  <div class="resume-chapter">
         <div class="resume-chapter-inner">
             <div class="resume-chapter-content">
-                <h2 class="mb40">Skills: <span> <%= link_to "Add",  new_resume_edu_path(@resume), class: "btn btn-secondary" %></span></h2>
+                <h2 class="mb40">Skills: <span> <%= link_to "Add",  new_resume_skill_path(@resume), class: "btn btn-secondary" %></span></h2>
 
                 <dl>
-                    <% @edus.each do |edu| %>
-
-                    <dt><%= edu.sdate.strftime ("%Y") %> - <%= edu.edate.strftime ("%Y") %> </dt>
+                    
+                    <% @skills.each do |skill| %>
+                    <dt>Skills and Hobbies </dt>
                     <dd>
-                        <Strong><%= edu.sname %></Strong><br>
-                        <i class="small"><%= edu.course %></i>
-                        <p><%= edu.description %></p>
+                        <p><%= skill.name %></p>
                     </dd>
                     <% end %>      
                 </dl>

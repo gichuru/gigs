@@ -1,0 +1,39 @@
+<div class="container">
+	<h4 class ="center">Add Skills</h4>
+    <div class="col-sm-8"> 	
+    	<div class= "row"> 
+            <%= form_for([@resume, @skill]) do |f| %>
+                <div class="col-sm-10">
+                    <div class="form-group">
+                        <%= f.label :Skills %>
+                        <%= f.text_area :name, class: "form-control input-lg" %>
+                    </div><!-- /.form-group -->
+                <small class="small">Enter skills you have, separate them with commas</small>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                     <%= f.submit "Click to Add ", class: "btn btn-secondary btn-block" %>
+                    </div>
+    	       </div>
+		  <% end %>
+        </div> <!-- End or Row-->
+    </div><!-- /.col-sm-8-->
+
+    <div class="col-sm-4">
+        <div class="widget">
+            <h2>Your profile information</h2>
+            <ul class="nav">
+                <li><span>1.</span> First and Last Name </li>
+                <li><span>2.</span> Date of birth (calculates age)</li>
+                <li><span>3.</span> Phone (hidden to the public)</li>
+            </ul>
+        </div><!-- /.widget --> 
+        <div class="widget">
+            <h2>Your Bio</h2>
+            <p>Start it with "I'm a student at ABC School and I am looking for internship in (category), I'm hardworking etc" </p>
+
+        </div><!-- /.widget -->   
+    </div><!-- /.col-* -->
+</div><!-- /.container -->
+

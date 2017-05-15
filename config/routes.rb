@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  	resources :dashboard
 
 	resources :companies do
 		resources	:gigs
@@ -10,7 +11,9 @@ Rails.application.routes.draw do
 
 	resources :resumes do
 		resources :edus
-		resources	:jobs
+		resources :jobs
+		resources :skills
+
 	end
 
 		root 'gigs#index'

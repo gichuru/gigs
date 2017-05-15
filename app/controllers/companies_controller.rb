@@ -1,9 +1,10 @@
 class CompaniesController < ApplicationController
-
 before_action :set_company, only: [:index, :show, :edit, :update, :destroy]
+before_action :authenticate_user!, except: [:index]
 
 
 def index
+	@companies = Company.where(user_id: current_user.id)
 	@company = Company.all
 end
 
@@ -13,6 +14,7 @@ end
 
 def create
 	@company = Company.new (company_params)
+	@company.user_id = current_user.id
 	@company.save!
 	redirect_to @company	
 end
@@ -34,6 +36,12 @@ private
 	def company_params
 		params.require(:company).permit(:cname, :industry, :email, :website, :location, :description)
 	end
+
+	def check_user
+      unless (@company.user == current_user) || (current_user.admin?)
+        redirect_to root_url, alert: "Sorry, this company belongs to someone else, you can only edit companies you have posted."
+      end
+    end
 
 	def set_company
 		@company = Company.find_by(:id => params[:id])	

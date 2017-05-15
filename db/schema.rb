@@ -24,12 +24,14 @@ ActiveRecord::Schema.define(version: 20170315100407) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string "cname"
-    t.string "industry"
-    t.string "email"
-    t.string "website"
-    t.string "location"
-    t.string "description"
+    t.string  "cname"
+    t.string  "industry"
+    t.string  "email"
+    t.string  "website"
+    t.string  "location"
+    t.string  "description"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "edus", force: :cascade do |t|
@@ -94,7 +96,9 @@ ActiveRecord::Schema.define(version: 20170315100407) do
   end
 
   create_table "skills", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "resume_id"
+    t.index ["resume_id"], name: "index_skills_on_resume_id"
   end
 
   create_table "users", force: :cascade do |t|
