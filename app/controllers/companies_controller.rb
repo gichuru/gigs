@@ -2,10 +2,13 @@ class CompaniesController < ApplicationController
 before_action :set_company, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, except: [:index]
 
+def listing
+	@company = Company.where(user_id: current_user.id)
+end
 
 def index
-	#@companies = Company.where(user_id: current_user.id)
 	@company = Company.all
+	@gig = Gig.all.order("created_at DESC")
 end
 
 def new
@@ -21,7 +24,7 @@ end
 
 def show
 	@company = Company.find(params[:id])
-	@gigs = Gig.where(company_id: @company.id).order("created_at DESC")
+	@gig = Gig.all.order("created_at DESC")
 end
 
 def destroy

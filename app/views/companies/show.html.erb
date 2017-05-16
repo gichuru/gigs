@@ -88,7 +88,7 @@
             <h3 class="page-header">Open Positions</h3>
 
             <div class="positions-list">
-                    <% @gigs.each do |gig| %> 
+                    <% @gig.each do |gig| %> 
                 <div class="positions-list-item">
                     <h2><%= link_to gig.name, company_gig_path(@company, gig) %></h2>
                     <h3><span>(logo)</span> San Francisco, Dropbox <br></h3>

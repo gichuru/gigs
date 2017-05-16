@@ -1,10 +1,16 @@
+      <!--Either display companies by the current user logged in or all companies -->
  <div class="container">
     <div class="row">
     <div class="col-sm-9">
 
-        <h2 class="page-header">Displaying <strong><%= Company.count %></strong> Companies that are hiring Interns</h2>
+        <h2 class="page-header">My Companies</h2>
 
-
+        <% if @company.blank? %>
+        <p> You do not have any company or organisation, <%= link_to "Create a new Company".html_safe, new_company_path %> to hire an Intern  </p>
+        <% else %>
+        <p> Select one of your companies below to post an internship oportunity or <%= link_to "Create a new Company".html_safe, new_company_path %> </p>
+        <%end%>
+            
         <div class="companies-list">
             <% @company.each do |company| %> 
                 <div class="companies-list-item">
@@ -28,47 +34,11 @@
                         <i class="fa fa-star"></i>
                         <p class="count"> Interns</p>
                         <span class="companies-list-item-rating-count">53</span>
-                         <!-- <span class="pcompanies-list-item-rating-count"><%= link_to "Delete", company, method: :delete, data: { confirm: 'Are you sure?' } %></span> -->
+                         <span class="pcompanies-list-item-rating-count"><%= link_to "Delete", company, method: :delete, data: { confirm: 'Are you sure?' } %></span>
                     </div><!-- /.companies-list-item-rating -->
                 </div><!-- /.companies-list-item -->
             <% end %>
 
         </div><!-- /.companies-list -->
-
-
-
-<!-- <div class="center">
-    <ul class="pagination">
-        <li>
-            <a href="#">
-                <i class="fa fa-chevron-left"></i>
-            </a>
-        </li>
-
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li class="active"><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-            <a href="#">
-                <i class="fa fa-chevron-right"></i>
-            </a>
-        </li>
-    </ul>
-  </div> --><!-- /.center -->
-    </div><!-- /.col-* -->
-
-    <div class="sidebar col-sm-3">
-        <h2>Open Positions</h2>
-
-        <div class="positions-list-small">
-            <div class="positions-list-small-item">
-                <h2><a href="#">UX/UI Senior Designer</a></h2>
-                <h3><span>(logo))</span> Dropbox Inc. <br>San Francisco, California</h3>
-            </div>
-        </div><!-- /.positions-list-small -->
-    </div><!-- /.col-* -->
-</div><!-- /.row -->
-
-</div><!-- /.container -->
+        </div>
+        </div>

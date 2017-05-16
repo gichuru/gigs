@@ -1,7 +1,7 @@
 class Skill < ActiveRecord::Base
 	has_many	:abilities
 	has_many	:gigs, through: :abilities
-	belongs_to :resume
+	belongs_to :resume, optional: true
 
 
 	def skill_list=(skills_string)

@@ -32,10 +32,11 @@
                         <!-- <li><%= link_to "Apply for Internship".html_safe, new_resume_path, class: "primary" %></li> -->
                     <% end %>
         
-                   
+                <li><%= link_to "Apply for Internship &raquo".html_safe, gigs_path, class: "primary" %>
 
-                   <% if user_signed_in? %>
+                <% if user_signed_in? %>
 
+                      <li><%= link_to "Post Internship", listing_path, class: "primary" %></li>
                       <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
                       <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
                     <% else %>
@@ -52,14 +53,12 @@
                 </button>
             </div><!-- /.container -->
               <div class ="container">
-                  <ul class="header-actions nav nav-pills left">
-                  <% if user_signed_in? && current_user.is_employer? %>  
-                    <li><%= link_to "Post Internship Opportunity &raquo".html_safe, companies_path, class: "primary" %>
-                      <% else %>
-                    <li><%= link_to "Apply for Internship".html_safe, new_resume_path, class: "primary" %></li>
-                  </ul>
-                  <% end %>
+                <div class="header-brand">
                 </div>
+                 <!--  <ul class="header-actions nav nav-pills ">
+                    <li><%= link_to "Apply for Internship &raquo".html_safe, new_resume_path, class: "primary" %></li>
+                  </ul>    -->    
+              </div>
               </div>
         <!-- /.header-top -->
     </div><!-- /.header -->

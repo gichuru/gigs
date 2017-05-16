@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 		resources	:proposals
 	end
 	resources	:gigs
-
 	resources :resumes do
 		resources :edus
 		resources :jobs
@@ -17,5 +16,6 @@ Rails.application.routes.draw do
 	end
 
 		root 'gigs#index'
+		get 'listing' => "companies#listing"
 
 end
