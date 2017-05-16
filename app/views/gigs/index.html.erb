@@ -10,7 +10,8 @@
 
                 <div class="companies-list-item-heading col-sm-4">
                     <h2><%= link_to gig.name, gig_path(gig) %> </h2>
-                    <h2>Company name </h2> 
+                    <small><%= gig.category %></small><br>
+                    <!-- <h2>Company name </h2>  -->
                     <small><%= gig.description %></Small>          
                 </div><!-- /.companies-list-item-heading -->
                     <div class="companies-list-item-count">
