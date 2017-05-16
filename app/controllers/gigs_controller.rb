@@ -1,6 +1,6 @@
 class GigsController < ApplicationController
 	 before_action :set_company, except: [:index, :show]
-	 before_action :set_gig, only: [:index, :show, :edit, :update, :destroy]
+	 before_action :set_gig, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@gig = Gig.all
@@ -19,7 +19,7 @@ class GigsController < ApplicationController
 
 	def show
 		@gig = Gig.find(params[:id])
-		@company = Company.where(gig_id: @gig.id)
+		
 	end
 
 	def destroy
