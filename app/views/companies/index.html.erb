@@ -3,13 +3,15 @@
     <div class="col-sm-9">
         <!--Either display companies by the current user logged in or all companies -->
 
-        <% if user_signed_in? %> 
-        <div class="companies-list">
-            <% if @companies.blank? %>
-            <p> You do not have a company to post internships,  <%= link_to "Create a New Company", new_company_path, class: "primary" %>
-                <% else %>
-            <p class="small">Select one of your Companies or subsidiary to post an Internship position, or <%= link_to "Create a New Company", new_company_path %> </p>
-            <% end %>
+<% if user_signed_in? && current_user.is_employer? %> 
+    <div class="companies-list">
+        <% if @companies.blank? %>
+            <p> You do not have a company to post internships, <%= link_to "Create a New Company", new_company_path, class: "primary" %>
+        <% else %>
+        <h2 class="page-header">My Companies</h2>
+            <p class="small">Employer, Select one of your Companies or subsidiary to post an Internship position, or <%= link_to "Create a New Company", new_company_path %> </p>
+        <% end %>
+
             <% @companies.each do |company| %> 
                 <div class="companies-list-item">
                     <div class="companies-list-item-image">
@@ -37,9 +39,9 @@
                     </div><!-- /.companies-list-item-rating -->
                 </div><!-- /.companies-list-item -->
             <% end %>
-
         </div><!-- /.companies-list -->
     <% end %>
+    
 
         <h2 class="page-header">Displaying <strong class="red"><%= Company.count %></strong> Companies that are hiring Interns</h2>
 

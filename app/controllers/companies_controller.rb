@@ -4,7 +4,7 @@ before_action :authenticate_user!, except: [:index]
 
 
 def index
-	@companies = Company.where(user_id: current_user.id)
+	#@companies = Company.where(user_id: current_user.id)
 	@company = Company.all
 end
 
