@@ -23,8 +23,8 @@ def create
 end
 
 def show
-	@company = Company.find(params[:id])
-	@gig = Gig.all.order("created_at DESC")
+	#@company = Company.find(params[:id])
+	@gigs = Gig.where(company_id: @company.id).order("created_at DESC")
 end
 
 def destroy

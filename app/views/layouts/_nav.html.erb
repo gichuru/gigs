@@ -32,16 +32,16 @@
                         <!-- <li><%= link_to "Apply for Internship".html_safe, new_resume_path, class: "primary" %></li> -->
                     <% end %>
         
-                <li><%= link_to "Apply for Internship &raquo".html_safe, gigs_path, class: "primary" %>
+                
+                  <li><%= link_to "Post Internship", listing_path, class: "primary" %></li>
 
                 <% if user_signed_in? %>
-
-                      <li><%= link_to "Post Internship", listing_path, class: "primary" %></li>
-                      <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-                      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+                <li><%= link_to "Apply for Internship &raquo".html_safe, gigs_path, class: "primary" %>
+                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
                     <% else %>
-                      <li><%= link_to "Login in", new_user_session_path %></li>
-                      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                 <li><%= link_to "Login in", new_user_session_path %></li>
+                  <li><%= link_to "Sign Up", new_user_registration_path %></li>
                     <% end %>
                 </ul><!-- /.header-actions -->
 

@@ -8,7 +8,7 @@
         <% if @company.blank? %>
         <p> You do not have any company or organisation, <%= link_to "Create a new Company".html_safe, new_company_path %> to hire an Intern  </p>
         <% else %>
-        <p> Select one of your companies below to post an internship oportunity or <%= link_to "Create a new Company".html_safe, new_company_path %> </p>
+        <p> Select one of your companies below to <B> post an internship</B> oportunity or <%= link_to "Create a new Company".html_safe, new_company_path %> </p>
         <%end%>
             
         <div class="companies-list">

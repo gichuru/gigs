@@ -1,17 +1,16 @@
 <div class="container">
         <div class="main">
-            <div class="document-title">
+            <!-- <div class="document-title"> -->
                  <div class="position-header">
 					<h1> <%= @gig.name %> <span class="label label-success"><%= @gig.budget %></span></h1>
 					<small>Created on <%= @gig.created_at.strftime (" %d of %b %Y") %></small>
-					<h2>
-						<span class="position-header-company-image"></span>
-						company name
-					</h2>
+			
+					
+					<h2><span class="position-header-company-image"></span><%= link_to @company.name %>	</h2>
+					
 				</div><!-- /.position-header -->
-				
-            </div><!-- /.document-title -->
-
+            <!-- </div>/.document-title -->
+<hr>
 	<div class="row">
 		<div class="col-sm-8">
 			<div class="position-general-information">
@@ -59,6 +58,26 @@
 
 
 		<div class="col-sm-4">
+
+			<div class="position-general-information">
+				<dl>
+					<dt>Status</dt>
+					<dd><%= @gig.open %> </dd>
+
+					<dt>Location</dt>
+					<dd><%= @gig.location %> </dd>
+
+					<dt>Duration</dt>
+					<dd><%= @gig.duration %> Months </dd>
+
+					<dt>Stipend (Kshs/pm)</dt>
+					<dd><%= @gig.budget %> /=  </dd>
+
+					<dt>Start Date</dt>
+					<dd><%= @gig.startdate.strftime (" %d - %b - %Y") %> </dd>
+
+				</dl>
+			</div><!-- /.position-general-information -->
 			<div class="company-card">
     <div class="company-card-image">
         <span>Employeer Details</span>
@@ -66,6 +85,8 @@
     </div><!-- /.company-card-image -->
 
     <div class="company-card-data">
+
+
         <dl>
             <dt>Website</dt>
             <dd><a href="http://example.com">www.example.com</a></dd>
