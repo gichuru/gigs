@@ -3,42 +3,19 @@
             <!-- <div class="document-title"> -->
                  <div class="position-header">
 					<h1> <%= @gig.name %> <span class="label label-success"><%= @gig.budget %></span></h1>
-					<small>Created on <%= @gig.created_at.strftime (" %d of %b %Y") %></small>
-			
-					
-					<h2><span class="position-header-company-image"></span><%= link_to @company.name %>	</h2>
+					<small>Created on <%= @gig.created_at.strftime (" %d of %b %Y") %></small>		
+					<!-- <h2><span class="position-header-company-image"></span><%= link_to @company.name %>	</h2> -->
 					
 				</div><!-- /.position-header -->
-            <!-- </div>/.document-title -->
-<hr>
 	<div class="row">
+		<h3 class="page-header">Description, duties, responsibilities</h3>
 		<div class="col-sm-8">
-			<div class="position-general-information">
-				<dl>
-					<dt>Status</dt>
-					<dd><%= @gig.open %> </dd>
-
-					<dt>Location</dt>
-					<dd><%= @gig.location %> </dd>
-
-					<dt>Duration</dt>
-					<dd><%= @gig.duration %> Months </dd>
-
-					<dt>Stipend (Kshs/pm)</dt>
-					<dd><%= @gig.budget %> /=  </dd>
-
-					<dt>Start Date</dt>
-					<dd><%= @gig.startdate.strftime (" %d - %b - %Y") %> </dd>
-
-				</dl>
-			</div><!-- /.position-general-information -->
-
-			<h3 class="page-header">Description, duties, responsibilities</h3>
+			
 			<p>
 				<%= @gig.description %> 
 			</p>
 
-			<h3 class="page-header">Other benefits</h3>
+			<h3 class="page-header">Skills</h3>
 
 			<ul>
 				<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
@@ -47,19 +24,36 @@
 				
 			</ul>
 
-			<h3 class="page-header">Personality requirements and skills</h3>
+			<h3 class="page-header">Applications received so far </h3>
 
-			<ul>
-				<li>Ut aliquam sollicitudin leo.</li>
-				<li>Cras iaculis ultricies nulla.</li>
-			</ul>
+		<div class="companies-list">
+           
+                <div class="companies-list-item">
+                    <div class="companies-list-item-image">
+                        image
+                    </div><!-- /.companies-list-item-image -->
+
+                    <div class="companies-list-item-heading">
+                        <h2>Name of Applicant</h2>
+
+                        <h3>Bio</h3>
+                    </div><!-- /.companies-list-item-heading -->
+
+                    <div class="companies-list-item-count">
+                        <span>Date of Application</span><br>
+                    </div><!-- /.positions-list-item-count -->
+
+                    <div class="companies-list-item-rating">
+                         <span>Open</span><br>
+                    </div><!-- /.companies-list-item-rating -->
+                </div><!-- /.companies-list-item -->
+        </div><!-- /.companies-list -->
 		</div><!-- /.col-* -->
 
 
 
-		<div class="col-sm-4">
-
-			<div class="position-general-information">
+<div class="col-sm-4">
+	<div class="position-general-information">
 				<dl>
 					<dt>Status</dt>
 					<dd><%= @gig.open %> </dd>
@@ -70,45 +64,17 @@
 					<dt>Duration</dt>
 					<dd><%= @gig.duration %> Months </dd>
 
-					<dt>Stipend (Kshs/pm)</dt>
-					<dd><%= @gig.budget %> /=  </dd>
+					<dt>Stipend</dt>
+					<dd><%= @gig.budget %>/= (pm)</dd>
 
 					<dt>Start Date</dt>
 					<dd><%= @gig.startdate.strftime (" %d - %b - %Y") %> </dd>
 
 				</dl>
-			</div><!-- /.position-general-information -->
-			<div class="company-card">
-    <div class="company-card-image">
-        <span>Employeer Details</span>
-        (insert logo here)
-    </div><!-- /.company-card-image -->
-
-    <div class="company-card-data">
-
-
-        <dl>
-            <dt>Website</dt>
-            <dd><a href="http://example.com">www.example.com</a></dd>
-
-            <dt>E-mail</dt>
-            <dd><a href="#">info@example.com</a></dd>
-
-            <dt>Phone</dt>
-            <dd>1-234-456-789</dd>
-
-            <dt>Address</dt>
-            <dd>
-                Everton Street 231,<br>
-                San Francisco, California
-            </dd>
-        </dl>
-    </div><!-- /.company-card-data -->
-</div><!-- /.company-card -->
-
+			</div><br><!-- /.position-general-information -->
 
 			<div class="widget">
-				<h2>Interned in this positined already? Review it</h2>
+				<h2>Apply for this Internship</h2>
 
 				<form method="get" action="?">
 					<div class="form-group">
@@ -127,8 +93,9 @@
 				</form>
 			</div><!-- /.widget -->
 		</div><!-- /.col-* -->
+
 	</div><!-- /.row -->
 </div><!-- /.container -->
 
-        </div><!-- /.main -->
-    </div><!-- /.main-wrapper -->
+</div><!-- /.main -->
+</div><!-- /.main-wrapper -->

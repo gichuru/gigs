@@ -27,6 +27,22 @@ def show
 	@gigs = Gig.where(company_id: @company.id).order("created_at DESC")
 end
 
+def edit
+	
+end
+
+def update
+    respond_to do |format|
+      if @company.update(company_params)
+        format.html { redirect_to root_url, notice: 'Company was successfully updated.' }
+        format.json { render :show, status: :ok, location: @company }
+      else
+        format.html { render :edit }
+        format.json { render json: @company.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 def destroy
 	@company.destroy
 	redirect_to @company
