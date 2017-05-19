@@ -3,12 +3,13 @@
             <!-- <div class="document-title"> -->
                  <div class="position-header">
 					<h1> <%= @gig.name %> <span class="label label-success"><%= @gig.budget %></span></h1>
-					<small>Created on <%= @gig.created_at.strftime (" %d of %b %Y") %></small>		
+					<small>Created on <%= @gig.created_at.strftime (" %d of %b %Y") %></small><br>
+					<small><%= @gig.location %> </small>
 					<!-- <h2><span class="position-header-company-image"></span><%= link_to @company.name %>	</h2> -->
 					
 				</div><!-- /.position-header -->
 	<div class="row">
-		<h3 class="page-header">Description, duties, responsibilities</h3>
+		<h3 class="page-header">Description, skills, responsibilities</h3>
 		<div class="col-sm-8">
 			
 			<p>
@@ -16,13 +17,14 @@
 			</p>
 
 			<h3 class="page-header">Skills</h3>
+			<% @gig.skills.each do | skill | %>
 
 			<ul>
-				<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-				<li>Aliquam tincidunt mauris eu risus.</li>
-				<li>Vestibulum auctor dapibus neque.</li>
-				
+				<li><%= skill.name %></li>
+		
 			</ul>
+
+			<% end %>
 
 			<h3 class="page-header">Applications received so far </h3>
 
@@ -57,9 +59,6 @@
 				<dl>
 					<dt>Status</dt>
 					<dd><%= @gig.open %> </dd>
-
-					<dt>Location</dt>
-					<dd><%= @gig.location %> </dd>
 
 					<dt>Duration</dt>
 					<dd><%= @gig.duration %> Months </dd>
