@@ -20,19 +20,19 @@ location = [
 
 User.where(email: "testing@testing.com").first_or_create(email: "Ninja boss", password: "12")
 
-5.times do
+1.times do
 	User.create( email: Faker::Internet.email, password: "pwd")
 end
 
 
-3.times do 
-	Gig.create(name: Faker::Name.title,
-				description: Faker::Lorem.paragraph(5),
-				budget: rand(5000..50000),
-				location: location.sample,
-				duration: rand(1..6),
-				startdate: Faker::Date.forward(23),
-				user_id: 1,
-				category_id: rand(1..3)
-				)
-end
+# 3.times do 
+# 	Gig.create(name: Faker::Name.title,
+# 				description: Faker::Lorem.paragraph(5),
+# 				budget: rand(5000..50000),
+# 				location: location.sample,
+# 				duration: rand(1..6),
+# 				startdate: Faker::Date.forward(23),
+# 				user_id: 1,
+# 				category_id: rand(1..3)
+# 				)
+# end

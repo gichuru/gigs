@@ -9,7 +9,8 @@
                     </div><!-- /.companies-list-item-image -->
 
                 <div class="companies-list-item-heading col-sm-4">
-                    <h2><%= link_to gig.name, gig_path(gig) %> </h2>
+                 
+                    <h2><%= link_to gig.name, gig %> </h2>
                      <small = "small ">Posted: <%= time_ago_in_words(gig.created_at) %> ago</small><br>
                     <!-- <small><%= gig.category %></small><br> -->
                     <!-- <h2>Company name </h2>  -->
@@ -25,7 +26,7 @@
                     <div class="companies-list-item-rating">
                        <small>Starts: <%= gig.startdate.strftime (" %d - %b - %Y") %></a></small><br>
                        <ul class="header-actions nav nav-pills">
-                        <li><%= link_to "Apply Now", gig_path(gig), class: "primary" %>
+                        <li><%= link_to "Apply Now", company_gigs_path(gig), class: "primary" %>
                         </ul>
                         <!-- <span class="companies-list-item-rating-count">/ 53</span> -->
                     </div><!-- /.companies-list-item-rating -->

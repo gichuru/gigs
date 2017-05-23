@@ -75,22 +75,13 @@
 
 			<div class="widget">
 				<h2>Apply for this Internship</h2>
-
-				<form method="get" action="?">
+				<%= form_for :proposal, url: company_gig_proposals_path(@company, @gig) do |f| %>
 					<div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
+                        <%= f.label :description %> <span class="small"></span>
+                        <%= f.text_area :description, rows: 7, class: "form-control" %>
                     </div><!-- /.form-group -->
-
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your E-mail">
-                    </div><!-- /.form-group -->
-
-                    <div class="form-group">
-                        <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
-                    </div><!-- /.form-group -->
-
-                    <button class="btn btn-secondary pull-right" type="submit">Apply Now</button>
-				</form>
+               		<%=f.submit "Submit Application", class: "btn btn-secondary pull-right" %>
+				<% end %>
 			</div><!-- /.widget -->
 		</div><!-- /.col-* -->
 

@@ -5,6 +5,7 @@ class GigsController < ApplicationController
 
 	def index
 		@gig = Gig.all
+		
 	end
 
 	def new
