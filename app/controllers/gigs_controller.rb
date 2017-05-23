@@ -24,6 +24,22 @@ class GigsController < ApplicationController
 		@company = Company.where(gig_id: @gig.id)
 	end
 
+	def edit
+		
+	end
+
+	def update
+    respond_to do |format|
+      if @gig.update(gig_params)
+        format.html { redirect_to @gig, notice: 'gig was successfully updated.' }
+        format.json { render :show, status: :ok, location: @gig }
+      else
+        format.html { render :edit }
+        format.json { render json: @gig.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 	def destroy
 		@gig.destroy
 		redirect_to company_path(@company)

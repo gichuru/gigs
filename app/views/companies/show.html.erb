@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
+                        <p><%= link_to 'Back to my companies', listing_path, class: "btn btn-link"  %></p>
         <div class="col-sm-4">
           <div class="company-card">
             <div class="company-card-image">
-                <span>Employer Details</span>
-                logo goes here
+                <span><%= @company.cname%> Card</span>
             </div><!-- /.company-card-image -->
                 <div class="company-card-data">
                     <dl>
@@ -15,44 +15,28 @@
                          <dt>Website</dt>
                         <dd><%= @company.website %></dd>
 
-                        <dt>Phone</dt>
+                      <!--   <dt>Phone</dt>
                         <dd>coming soonn</dd>
-
+ -->
                         <dt>Location</dt>
                         <dd><%= @company.location %></dd>
                     </dl>
+
                 </div><!-- /.company-card-data -->
         </div><!-- /.company-card -->
 
 
-            <!--<div class="widget">
-                <ul class="social-links">
-                    <li><a href="#"><i class="fa fa-facebook">ff</i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-                </ul>
-            </div><!-- /.widget -->
-<!-- 
             <div class="widget">
-                <h2>Contact Company</h2>
 
-                <form method="get" action="?">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
-                    </div><!-- /.form-group -->
-<!-- 
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your E-mail">
-                    </div><!-- /.form-group -->
+                <h3 class="page-header">Company Profile</h3>
 
-                    <!-- div class="form-group">
-                        <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
-                    </div><!-- /.form-group --> 
+            <p><%= @company.description %></p>
 
-                 <!--    <button class="btn btn-secondary pull-right" type="submit">Post Message</button>
-                </form>
-            </div> --><!-- /.widge -->
+            <span class="small"><%= link_to "Delete this company", company_path(@company), method: :delete %> </span>
+
+            </div><!-- /.widget -->
+
+          
         </div><!-- /.col-* -->
 
         <div class="col-sm-8">
@@ -61,41 +45,50 @@
 
                 <h1><%= @company.cname%><span>industry</span></h1>
 
+
+
+
                 <%= link_to "Post an Internship".html_safe, new_company_gig_path(@company), class: "btn btn-secondary" %>
             </div><!-- /.company-header -->
 
             <div class="company-stats">
                 <div class="company-stat">
                     <span>Positions</span>
-                    <strong><%= Gig.count %></strong>
+                    <strong><%= "#{@gigs.length}" %></strong>
                 </div><!-- /.company-stat -->
 
                 <div class="company-stat">
-                    <span>Employees</span>
+                    <span>Applications</span>
                     <strong>43</strong>
                 </div><!-- /.company-stat -->
 
                 <div class="company-stat">
-                    <span>Followers</span>
+                    <span>Interviewed</span>
                     <strong>324</strong>
                 </div><!-- /.company-stat -->
             </div><!-- /.company-stat -->
-
-            <h3 class="page-header">Company Profile</h3>
-
-            <p><%= @company.description %></p>
-
+               
             <h3 class="page-header">Open Positions</h3>
 
             <div class="positions-list">
                     <% @gigs.each do |gig| %> 
                 <div class="positions-list-item">
                     <h2><%= link_to gig.name, company_gig_path(@company, gig) %></h2>
-                    <h3><span>(logo)</span> San Francisco, Dropbox <br></h3>
-                        <p><%= gig.location %></p>
-                        <p>Duration: <%= gig.duration %> Start Date: <%= gig.startdate %></p>
-                    <div class="position-list-item-date">11/11/2015</div><!-- /.position-list-item-date -->
-                    <div class="position-list-item-action"><%= link_to "Delete", company_gig_path(@company, gig), method: :delete %></div><!-- /.position-list-item-action -->
+                    <h3><%= gig.location %><br></h3>
+
+                        <p><%= gig.description %></p>
+                        <Span class="small">Duration:<b> <%= gig.duration %> Months </b></span>
+                            <span class="small"> Starting on: <b><%= gig.startdate %></b><br>
+                         <span class="small"><%= link_to "Update", edit_company_gig_path(@company, gig) %></span> or <span class="small"><%= link_to "Delete", company_gig_path(@company, gig), method: :delete %> </span>
+
+
+                    <div class="position-list-item-date"> <small = "small ">Posted: <%= time_ago_in_words(gig.created_at) %> ago</div><!-- /.position-list-item-date -->
+
+                   <!--  <span class="position-list-item-action">Number of applicants<br> -->
+                       
+
+
+                    </div><!-- /.position-list-item-action -->
                 <% end %>
                     </div><!-- /.positions-list-item -->
             </div><!-- /.positions-list -->
