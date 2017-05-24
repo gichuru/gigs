@@ -23,6 +23,7 @@ class GigsController < ApplicationController
 		@gig = Gig.find(params[:id])
 		# @company = Company.all
 		@company = Company.where(gig_id: @gig.id)
+		@proposal = @gig.proposals.order(create_at: :DESC)
 	end
 
 	def edit

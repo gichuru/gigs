@@ -30,26 +30,31 @@
 			<h3 class="page-header">Applications received so far </h3>
 
 		<div class="companies-list">
-           
-                <div class="companies-list-item">
-                    <div class="companies-list-item-image">
-                        image
-                    </div><!-- /.companies-list-item-image -->
+			<% if @proposals.present? %>
+				<% @proposals.each do |proposal|%>
+	           
+	                <div class="companies-list-item">
+	                    <div class="companies-list-item-image">
+	                        image
+	                    </div>
 
-                    <div class="companies-list-item-heading">
-                        <h2>Name of Applicant</h2>
+	                    <div class="companies-list-item-heading">
+	                        <h2>name<%= proposal.user %></h2>
 
-                        <h3>Bio</h3>
-                    </div><!-- /.companies-list-item-heading -->
+	                        <h3>Bio</h3>
+	                    </div><!-- /.companies-list-item-heading -->
 
-                    <div class="companies-list-item-count">
-                        <span>Date of Application</span><br>
-                    </div><!-- /.positions-list-item-count -->
+	                    <div class="companies-list-item-count">
+	                        <span><%= proposal.description %></span><br>
+	                    </div><!-- /.positions-list-item-count -->
 
-                    <div class="companies-list-item-rating">
-                         <span>Open</span><br>
-                    </div><!-- /.companies-list-item-rating -->
-                </div><!-- /.companies-list-item -->
+	                    <div class="companies-list-item-rating">
+	                         <span>statusOpen</span><br>
+	                         <span><%= @proposal.created_at.strftime (" %d of %b %Y") %></span>
+	                    </div><!-- /.companies-list-item-rating -->
+	                </div><!-- /.companies-list-item -->
+	               <% end %>
+	             <% end %>
         </div><!-- /.companies-list -->
 		</div><!-- /.col-* -->
 
