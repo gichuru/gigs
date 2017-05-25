@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 	resources :companies do
 		resources	:gigs do
-			resources :proposals, except: :index
+			resource :proposals, except: :index
 		end
 		# resources	:proposals
 	end

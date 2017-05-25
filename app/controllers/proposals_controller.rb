@@ -11,6 +11,6 @@ class ProposalsController < ApplicationController
 private
 
 	def proposal_params
-		params.require(:proposal).permit(:user, :gig, :description)	
+		params.require(:proposals).permit(:gig, :description)	
 	end
 end

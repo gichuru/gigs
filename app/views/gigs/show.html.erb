@@ -27,33 +27,40 @@
 
 			<% end %>
 
-			<h3 class="page-header">Applications received so far </h3>
-
+			<h3 class="page-header">  Applications received so far: <span class="label label-info"><%= "#{@proposal.length}" %></span> </h3>
 		<div class="companies-list">
-			<% if @proposals.present? %>
-				<% @proposals.each do |proposal|%>
+
+				<% @gig.proposals.each do |proposal| %>
 	           
 	                <div class="companies-list-item">
-	                    <div class="companies-list-item-image">
-	                        image
+	                 <!--    <div class="companies-list-item-image">
+	                        A
 	                    </div>
-
+ -->
 	                    <div class="companies-list-item-heading">
-	                        <h2>name<%= proposal.user %></h2>
+	                        <h2><%= proposal.user %></h2>
+	                        <h3>Category</h3>
+	                        <small>Applied: <%= time_ago_in_words(proposal.created_at) %> ago</small>
 
-	                        <h3>Bio</h3>
+
 	                    </div><!-- /.companies-list-item-heading -->
 
 	                    <div class="companies-list-item-count">
+	                    	<h3>My Introduction </h3>
 	                        <span><%= proposal.description %></span><br>
 	                    </div><!-- /.positions-list-item-count -->
 
 	                    <div class="companies-list-item-rating">
-	                         <span>statusOpen</span><br>
-	                         <span><%= @proposal.created_at.strftime (" %d of %b %Y") %></span>
+	                         <span class= "form-control" >View Resume</span><br>
+	                         <%= form_for @gig, method: :put do |f| %>
+
+	                         <%= f.submit "Invite for Interview", class: "btn" %>
+
+	                         <% end %>
+	                         
 	                    </div><!-- /.companies-list-item-rating -->
 	                </div><!-- /.companies-list-item -->
-	               <% end %>
+	             
 	             <% end %>
         </div><!-- /.companies-list -->
 		</div><!-- /.col-* -->
@@ -80,10 +87,10 @@
 
 			<div class="widget">
 				<h2>Apply for this Internship</h2>
-				<%= form_for :proposal, url: company_gig_proposals_path(@company, @gig) do |f| %>
+				<%= form_for :proposals, url: company_gig_proposals_path(@company, @gig) do |f| %>
 					<div class="form-group">
-                        <%= f.label :description %> <span class="small"></span>
-                        <%= f.text_area :description, rows: 7, class: "form-control" %>
+                        <%= f.label :Introduce_yourself %>
+                        <%= f.text_area :description, rows: 5,  class: "form-control" %>
                     </div><!-- /.form-group -->
                		<%=f.submit "Submit Application", class: "btn btn-secondary pull-right" %>
 				<% end %>
