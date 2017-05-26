@@ -5,7 +5,6 @@ before_action :authenticate_user!, except: [:index]
 def listing
 	@company = Company.where(user_id: current_user.id)
 	@gigs = Gig.all
-	@gigs = Gig.where(user_id: current_user.id)
 end
 
 def index
@@ -25,7 +24,6 @@ def create
 end
 
 def show
-	#@company = Company.find(params[:id])
 	@gigs = Gig.where(company_id: @company.id).order("created_at DESC")
 end
 

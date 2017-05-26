@@ -12,6 +12,11 @@
               <label class="radio-inline"><%= f.radio_button :is_employer, "1" %> I'm an Employer</label>
             </div> -->
 
+             <div class="form-group">
+              <%= f.label :Full_Names %><em> i.e John Doe</em> <br />
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+
               <div class="form-group">
                 <%= f.label :email %><br />
                 <%= f.email_field :email, autofocus: true, class: "form-control" %>

@@ -1,11 +1,10 @@
 class GigsController < ApplicationController
-	 before_action :set_company, except: [:index, :show]
+	 before_action :set_company, except: [:index, :show, :update]
 	 before_action :set_gig, only: [:show, :edit, :update, :destroy]
 	 # before_action :authenticate_user!, except: [:index]
 
 	def index
 		@gig = Gig.all
-		
 	end
 
 	def new
@@ -23,13 +22,9 @@ class GigsController < ApplicationController
 		@gig = Gig.find(params[:id])
 		@company = Company.where(gig_id: @gig.id)
 		@proposal = @gig.proposals.order("created_at DESC")
-		# @resume = Resume.find(params[:id])
-
+		@awarded_internship = Proposal.where(id: @gig.awarded_internship).first
 	end
 
-	def edit
-		
-	end
 
 	def update
     respond_to do |format|
@@ -62,7 +57,7 @@ class GigsController < ApplicationController
 	end
 
 	def gig_params
-		params.require(:gig).permit(:name, :description, :budget, :startdate, :duration, :location, :category_id, :skill_list)
+		params.require(:gig).permit(:name, :description, :budget, :startdate, :duration, :location, :category_id, :skill_list, :awarded_internship)
 	end
 
 

@@ -11,32 +11,54 @@
 				</div><!-- /.position-header -->
 	<div class="row">
 		<h3 class="page-header">Description, skills, responsibilities</h3>
-		<div class="col-sm-8">
-			
-			<p>
-				<%= @gig.description %> 
-			</p>
+			<div class="col-sm-8">
+					<p>
+						<%= @gig.description %> 
+					</p>
 
-			<h3 class="page-header">Skills</h3>
-			<% @gig.skills.each do | skill | %>
+				<h3 class="page-header">Skills</h3>
+					<% @gig.skills.each do | skill | %>
+						<ul>
+							<li><%= skill.name %></li>
+						</ul>
 
-			<ul>
-				<li><%= skill.name %></li>
-		
-			</ul>
+					<% end %>
 
+		<h3 class="page-header">  Invited for interviews or hired </span> </h3>
+	<div class="companies-list">
+			<% if @awarded_internship.blank? %>
+
+			<p>Internship is still open</p>
+			<% else %>
+
+				<div class="companies-list-item">
+	                 <!--    <div class="companies-list-item-image">
+	                        A
+	                    </div>-->
+
+	                    <div class="companies-list-item-heading">
+	                        <h2><%= @awarded_internship.user %></h2>
+	                        <h3>Category</h3>
+	                        <small>Applied: <%= time_ago_in_words(@awarded_internship.created_at) %> ago</small>
+
+
+	                    </div><!-- /.companies-list-item-heading -->
+
+	                    <div class="companies-list-item-count">
+	                    	<h3>Application </h3>
+	                        <span><%= @awarded_internship.description %></span><br>
+	                    </div><!-- /.positions-list-item-count -->
+	                </div><!-- /.companies-list-item -->
 			<% end %>
 
 			<h3 class="page-header">  Applications received so far: <span class="label label-info"><%= "#{@proposal.length}" %></span> </h3>
 		<div class="companies-list">
 
 				<% @gig.proposals.each do |proposal| %>
-	           
 	                <div class="companies-list-item">
 	                 <!--    <div class="companies-list-item-image">
 	                        A
-	                    </div>
- -->
+	                    </div>-->
 	                    <div class="companies-list-item-heading">
 	                        <h2><%= proposal.user %></h2>
 	                        <h3>Category</h3>
@@ -53,11 +75,13 @@
 	                    <div class="companies-list-item-rating">
 	                         <span class= "form-control" >View Resume</span><br>
 	                         <%= form_for @gig, method: :put do |f| %>
+	                         <%= f.hidden_field :awarded_internship, value: proposal.id %>
+	                         <%= f.hidden_field :open, value: false %>
 
 	                         <%= f.submit "Invite for Interview", class: "btn" %>
 
 	                         <% end %>
-	                         
+	                                               
 	                    </div><!-- /.companies-list-item-rating -->
 	                </div><!-- /.companies-list-item -->
 	             
@@ -65,7 +89,7 @@
         </div><!-- /.companies-list -->
 		</div><!-- /.col-* -->
 
-
+</div>
 
 <div class="col-sm-4">
 	<div class="position-general-information">

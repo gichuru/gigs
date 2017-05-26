@@ -2,22 +2,32 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-        <h3 class="center">sign up</h3>
+        <h3 class="center">Sign up/Registration</h3>
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
 
              
             <div class="form-group primary">
-              <p class="center">Are you looking for internship or you're an employer?</p>
+              <hr>
+              <p class="center">I am</p>
+              
               <label class="radio-inline "><%= f.radio_button :is_employer, "0" %> Looking for internship</label>
               <label class="radio-inline"><%= f.radio_button :is_employer, "1" %> I'm an Employer</label>
             </div>
+            <hr>
 
-              <div class="form-group">
-              <%= f.label :email %><br />
+             <div class="form-group">
+              <%= f.label :Full_Names %><em> i.e John Doe</em> <br />
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :Valid_Email_Address %><br />
               <%= f.email_field :email, autofocus: true,  class: "form-control" %>
             </div>
+
+           
 
              <div class="form-group">
               <%= f.label :password %>

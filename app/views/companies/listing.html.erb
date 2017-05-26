@@ -1,6 +1,6 @@
   <div class="container">
     <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-12">
    <h2 class="page-header">Dashboard</h2>
         <% if @company.blank? %>
         <p> You do not have any company or organisation, <%= link_to "Create a new Company".html_safe, new_company_path %> to hire an Intern  </p>
@@ -17,15 +17,20 @@
                         (logo)
                     </div><!-- /.companies-list-item-image -->
 
-                    <div class="companies-list-item-heading">
+                     <div class="companies-list-item-heading">
                         <h2><%= link_to company.cname, company %></h2>
-                        <h3><%= company.location %></h3>
                           <span class="small"><%= link_to "Update Company", edit_company_path(company) %></span>
                     </div><!-- /.companies-list-item-heading -->
 
+
+                    <div class="companies-list-item-heading">
+
+                    <h3><%= company.location %></h3>
+                    </div><!-- /.companies-list-item-heading -->
+                    
                     <div class="companies-list-item-count">
                         <span><%= link_to "#{@gigs.length} open positions", company %> </span><br>
-                         <span>10 Applications Recieved</span>
+                         
                     </div><!-- /.positions-list-item-count -->
 
                     <div class="companies-list-item-rating">
@@ -36,11 +41,14 @@
             <% end %>
 
         </div><!-- /.companies-list -->
-        <div class="companies-list">
-            <hr>
-<h4>My Job postings</h4>
 
-        </div>
+        <!-- Display a list of all the gigs for this users, status, budget, applications received, delete & update -->
+
+        <% @gigs.each do |gig| %>
+        <span><%= link_to gig.name, gig %>  </span><br>
+        <span><%= gig.budget %> </span>
+        <span><%= gig.startdate %> </span>
+        <%end%>
 
  <div class="center">
     <ul class="pagination">
@@ -64,16 +72,6 @@
   </div><!-- /.center -->
     </div><!-- /.col-* -->
 
-    <div class="sidebar col-sm-3">
-        <h2>Applications Recieved</h2>
-
-        <div class="positions-list-small">
-            <div class="positions-list-small-item">
-                <h2><a href="#">UX/UI Senior Designer</a></h2>
-                <h3><span>(logo))</span> Dropbox Inc. <br>San Francisco, California</h3>
-            </div>
-        </div><!-- /.positions-list-small -->
-    </div><!-- /.col-* -->
 </div><!-- /.row -->
 
 </div><!-- /.container -->
