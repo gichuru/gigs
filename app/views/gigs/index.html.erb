@@ -1,9 +1,9 @@
 <div class="container">
-    <h2 class="page-header">Displaying <strong class="red"><%= Gig.count %></strong> internship positions available for you </h2>
+    <h2 class="page-header">Displaying <strong class="red"><%= Gig.count %></strong> internship position available for you </h2>
     <p>Select an internship opportunity below and apply </p>
      <div class="companies-list">   
      <% @gig.each do |gig| %>        
-                <div class="companies-list-item">
+              <div class="companies-list-item">
                     <div class="companies-list-item-image">
                        Logo
                     </div><!-- /.companies-list-item-image -->
@@ -16,31 +16,31 @@
                     <!-- <h2>Company name </h2>  -->
                     <small><%= gig.description %></Small>          
                 </div><!-- /.companies-list-item-heading -->
-                    <div class="companies-list-item-count">
+                <div class="companies-list-item-count">
                         <h2><span class="label label-info large">Pay: <%= gig.budget %> /=</span></h2>
                          <small>Duration: <%= gig.duration %> Months</small><br>
                       <!-- <span>Starts: <%= gig.startdate.strftime (" %d - %b - %Y") %></a></span><br> -->
                       <small>Location: <%= gig.location %></Small>
-                    </div><!-- /.positions-list-item-count -->
+                </div><!-- /.positions-list-item-count -->
 
-                    <div class="companies-list-item-rating">
+                <div class="companies-list-item-rating">
                        <small>Starts: <%= gig.startdate.strftime (" %d - %b - %Y") %></a></small><br>
                        <ul class="header-actions nav nav-pills">
-                        <li><%= link_to "Apply Now", company_gigs_path(gig), class: "primary" %>
+                        <li><%= link_to "Apply Now", gig_path(gig), class: "primary" %>
                         </ul>
                         <!-- <span class="companies-list-item-rating-count">/ 53</span> -->
-                    </div><!-- /.companies-list-item-rating -->
-                </div><!-- /.companies-list-item -->
+                </div><!-- /.companies-list-item-rating -->
+              </div><!-- /.companies-list-item -->
             <% end %>
-<div class="center">
-<ul class="pagination"> 
-        <li></li>
-        <li><a href="#">2</a></li>
-        <li class="active"><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-    </ul>
-  </div>
+        <div class="center">
+          <ul class="pagination"> 
+            <li></li>
+            <li><a href="#">2</a></li>
+            <li class="active"><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+          </ul>
+      </div>
 </div> <!-- page wrapper -->
 
 

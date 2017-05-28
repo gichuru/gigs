@@ -44,12 +44,7 @@
 
         <!-- Display a list of all the gigs for this users, status, budget, applications received, delete & update -->
 
-        <% @gigs.each do |gig| %>
-        <span><%= link_to gig.name, gig %>  </span><br>
-        <span><%= gig.budget %> </span>
-        <span><%= gig.startdate %> </span>
-        <%end%>
-
+    
  <div class="center">
     <ul class="pagination">
         <li>

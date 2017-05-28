@@ -7,7 +7,14 @@
                     <div class="header-logo">
                
                         <i class="profession profession-logo"></i>
+                         <% if user_signed_in? && current_user.is_employer? %>
+
                         <span class="header-logo-text"><%= link_to "Ma", root_path %> <span class="header-logo-highlight">:</span><%= link_to "Interns", root_path %></span>
+
+                      <% else %>
+
+                        <span class="header-logo-text"><%= link_to "Ma", root_path %> <span class="header-logo-highlight">:</span><%= link_to "Interns", root_path %></span>
+                        <% end %>
                     </div><!-- /.header-logo-->
 
                     <div class="header-slogan">
@@ -20,29 +27,34 @@
 
                     <!--if user wants to post an internship, is user logged in? ask to log in, has User created a company? if not ask to create a company, if user has created a company, allow to create an internship under that company, user can create multiple companies and multiple internships under the company -->
                    
-                   <!-- <li><%= link_to "Post an Internship &raquo".html_safe, new_company_path, class: "primary" %> -->
 
-                   
 
-                   <% if user_signed_in? && current_user.is_employer? %>
-                        <!-- <li><%= link_to "Post an Internship &raquo".html_safe, companies_path, class: "primary" %>  -->
-
-                          <!-- <li><%= link_to "or Help someone Apply for Internship".html_safe, new_resume_path, class: "primary" %></li> -->
-                   <% else %>
-                        <!-- <li><%= link_to "Apply for Internship".html_safe, new_resume_path, class: "primary" %></li> -->
-                    <% end %>
-        
-                
-                  <li><%= link_to "Post Internship", listing_path, class: "primary" %></li>
-
-                <% if user_signed_in? %>
-                
-                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
-                    <% else %>
-                 <li><%= link_to "Login in", new_user_session_path %></li>
-                  <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                    <% end %>
+                <% if user_signed_in? && current_user.is_employer? %>
+                  <li><%= link_to "Find Interns", resumes_path, class: "primary" %></li> 
+                  <li><%= link_to "Dashboard: Post Job &raquo".html_safe, listing_path, class: "primary" %>
+                <% elsif user_signed_in? %>
+                  <li><%= link_to "Find Internship".html_safe, gigs_path, class: "primary" %>
+                  <li><%= link_to "Companies hiring", companies_path, class: "primary" %></li> 
+                <% else %>
+                  <li><%= link_to "Find Interns", resumes_path, class: "primary" %></li> 
+                  <li><%= link_to "Post Internship Opportunity".html_safe, listing_path, class: "primary" %></li> 
+                <% end %>      
+                  
+                 
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          <% if user_signed_in? %> 
+                          <%= current_user.name %>  <b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
+                            <% else %>
+                             <li><%= link_to "Login in", new_user_session_path %></li>
+                             <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                             <li role="separator" class="divider"></li>
+                            <% end %> 
+                          </ul>
+                      </li>
                 </ul><!-- /.header-actions -->
 
                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".header-nav">
@@ -52,15 +64,13 @@
                     <span class="icon-bar"></span>
                 </button>
             </div><!-- /.container -->
-              <div class ="container">
-                <div class="header-brand">
-                </div>
-                 <!--  <ul class="header-actions nav nav-pills ">
-                    <li><%= link_to "Apply for Internship &raquo".html_safe, new_resume_path, class: "primary" %></li>
-                  </ul>    -->    
-              </div>
               </div>
         <!-- /.header-top -->
     </div><!-- /.header -->
 </div><!-- /.header-wrapper-->
-</div>
+
+
+
+
+
+

@@ -22,6 +22,9 @@ class GigsController < ApplicationController
 		@gig = Gig.find(params[:id])
 		@company = Company.where(gig_id: @gig.id)
 		@proposal = @gig.proposals.order("created_at DESC")
+		# @resume = @user.resumes.order("created_at DESC")
+		@resume = Resume.all
+		#@resumes = Resume.where(user_id: @user.id).order("created_at DESC")
 		@awarded_internship = Proposal.where(id: @gig.awarded_internship).first
 	end
 

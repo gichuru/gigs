@@ -84,8 +84,6 @@ ActiveRecord::Schema.define(version: 20170315100407) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.string  "fname"
-    t.string  "lname"
     t.date    "age"
     t.string  "phone"
     t.string  "address"

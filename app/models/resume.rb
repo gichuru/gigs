@@ -1,6 +1,7 @@
 class Resume < ActiveRecord::Base
-	belongs_to	:user
 	#belongs_to :category
+	has_many :proposals
+	belongs_to	:user 
 	has_many	:edus
 	has_many	:jobs
 	has_many	:skills

@@ -21,8 +21,6 @@ class InitialSchema < ActiveRecord::Migration[5.0]
   	end
 
     create_table :resumes do |t|
-      t.string  :fname
-      t.string  :lname
       t.date  :age
       t.string  :phone
       t.string  :address

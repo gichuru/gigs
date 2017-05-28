@@ -37,7 +37,7 @@
 	                    </div>-->
 
 	                    <div class="companies-list-item-heading">
-	                        <h2><%= @awarded_internship.user %></h2>
+	                        <h2><%= @awarded_internship.user.name %></h2>
 	                        <h3>Category</h3>
 	                        <small>Applied: <%= time_ago_in_words(@awarded_internship.created_at) %> ago</small>
 
@@ -60,7 +60,7 @@
 	                        A
 	                    </div>-->
 	                    <div class="companies-list-item-heading">
-	                        <h2><%= proposal.user %></h2>
+	                        <h2><%= proposal.user.name %></h2>
 	                        <h3>Category</h3>
 	                        <small>Applied: <%= time_ago_in_words(proposal.created_at) %> ago</small>
 
@@ -73,16 +73,22 @@
 	                    </div><!-- /.positions-list-item-count -->
 
 	                    <div class="companies-list-item-rating">
-	                         <span class= "form-control" >View Resume</span><br>
-	                         <%= form_for @gig, method: :put do |f| %>
-	                         <%= f.hidden_field :awarded_internship, value: proposal.id %>
-	                         <%= f.hidden_field :open, value: false %>
+						<% if user_signed_in? %>
+						<% @resume.each do |resume| %>
+	                         <span class= "form-control" ><%= link_to resume.user.name, resume %></span><br>   
+	                         <% end %>
+	                       <!-- Only Gig owners should see this -->
 
-	                         <%= f.submit "Invite for Interview", class: "btn" %>
+		                         <%= form_for @gig, method: :put do |f| %>
+		                         <%= f.hidden_field :awarded_internship, value: proposal.id %>
+		                         <%= f.hidden_field :open, value: false %>
+		                         <%= f.submit "Invite for Interview", class: "btn" %>
 
 	                         <% end %>
-	                                               
-	                    </div><!-- /.companies-list-item-rating -->
+	                         <% end %>
+	             
+	         			</div><!-- /.companies-list-item-rating -->
+	         	
 	                </div><!-- /.companies-list-item -->
 	             
 	             <% end %>
@@ -110,6 +116,7 @@
 			</div><br><!-- /.position-general-information -->
 
 			<div class="widget">
+			
 				<h2>Apply for this Internship</h2>
 				<%= form_for :proposals, url: company_gig_proposals_path(@company, @gig) do |f| %>
 					<div class="form-group">
@@ -117,7 +124,8 @@
                         <%= f.text_area :description, rows: 5,  class: "form-control" %>
                     </div><!-- /.form-group -->
                		<%=f.submit "Submit Application", class: "btn btn-secondary pull-right" %>
-				<% end %>
+			
+			<% end %>
 			</div><!-- /.widget -->
 		</div><!-- /.col-* -->
 

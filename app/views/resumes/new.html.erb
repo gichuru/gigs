@@ -5,54 +5,36 @@
     <div class="col-sm-8">
 			<%= form_for @resume do |f| %>
     	<div class= "row">
-            <div class="col-sm-5">
-                <div class="form-group">
-                    <%= f.label :first_name %>
-                    <%= f.text_field :fname, autofocus: true, class: "form-control input-lg" %>
-                    <small class="healer block"> Your First Name </small>
-                </div><!-- /.form-group -->
-            </div> 
-            <div class="col-sm-5">
-                <div class="form-group">
-                    <%= f.label :last_name %>
-                    <%= f.text_field :lname, autofocus: true, class: "form-control input-lg" %>
-                    <small class="healer block"> Your Last Name </small>
-                </div><!-- /.form-group -->
-            </div> 
+            
     		<div class="col-sm-5">
     			<div class="form-group">
-    				<%= f.label :age %>
-    				<%= f.date_field :age, autofocus: true, class: "form-control input-lg" %>
-    				<small class="healer block"> Enter date of birth </small>
+    				<%= f.label :age %><span> Date of birth</span>
+    				<%= f.date_field :age, max: Date.today - 5475, autofocus: true, class: "form-control input-lg" %>
     			</div><!-- /.form-group -->
     		</div> 
     		<div class="col-sm-5">
     			<div class="form-group">
-    				<%= f.label :phone %>
+    				<%= f.label :phone %><span> Active Mobile number</span>
     				<%= f.text_field :phone, class: "form-control input-lg" %>
-    				<small class="healer block"> Only verified employers can see this</small>
     			</div><!-- /.form-group -->
     		</div>
             <div class="col-sm-10">
                 <div class="form-group">
-                    <%= f.label :Address %>
+                    <%= f.label :Address %><span> Where do you live currently</span>
                     <%= f.text_field :address, autofocus: true, class: "form-control input-lg" %>
-                    <small class="healer block"> Enter city and country, i.e Nairobi, Kenya </small>
                 </div><!-- /.form-group -->
             </div>
 
              <div class="col-sm-10">
                 <div class="form-group">
-                    <%= f.label :Type %>
+                    <%= f.label :category %> <span> Business Category you're interested in</span>
                     <%= f.text_field :category, autofocus: true, class: "form-control input-lg" %>
-                    <small class="healer block"> Enter the Kind of internship you are looking for </small>
                 </div><!-- /.form-group -->
             </div>
     		<div class="col-sm-10">
     			<div class="form-group">
-    				<%= f.label :bio %>
+    				<%= f.label :bio %><span> Your bio, Be conscise (280 xters)</span>
     				<%= f.text_area :bio, class: "form-control" %>
-    				<small class="healer block"> About yourself, start with "I'm a.. " </small>
     			</div><!-- /.form-group -->
     		</div>
 
@@ -68,9 +50,9 @@
 
     <div class="col-sm-4">
         <div class="widget">
-            <h2>Your profile information</h2>
+            <h2>Tips :</h2>
             <ul class="nav">
-                <li><span>1.</span> First and Last Name </li>
+                <li><span>1.</span> Enter full names </li>
                 <li><span>2.</span> Date of birth (calculates age)</li>
                 <li><span>3.</span> Phone (hidden to the public)</li>
             </ul>

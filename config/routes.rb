@@ -17,8 +17,12 @@ Rails.application.routes.draw do
 		resources :skills
 
 	end
-
+ 
+ # if user_signed_in? && current_user.is_employer?
 		root 'gigs#index'
+	# else 
+		root 'gig#resumes'
+	# end
 		get 'listing' => "companies#listing"
 
 end
